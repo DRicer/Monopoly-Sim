@@ -12,7 +12,8 @@ class Rules():
 		self.board = Board()
 		self.numPlayers = 4
 		self.players = []
-		self.propeties = []
+		self.tiles = []
+	
 		CreatePlayers(numPlayers)
 	
 	
@@ -21,5 +22,5 @@ class Rules():
 			players.append(Player(order = i, strat = "risky"))
 			
 	def loadProperties():
-	
+		
 	
