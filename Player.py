@@ -1,10 +1,6 @@
 
 
 class Player():
-
-	ownedProperties = []
-	boardPos = 0
-	jailTurns = 0
 	
 	def __init__(self, order, startCash = 1500, Strat):
 	
@@ -20,6 +16,10 @@ class Player():
 		self.rollOrder = order
 		self.Cash = startCash
 		self.Strategy = Strat
+		
+		self.ownedProperties = []
+		self.boardPos = 0
+		self.jailTurns = 0
 	
 	def GetRollOrder():
 		return rollOrder

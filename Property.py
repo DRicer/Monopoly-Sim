@@ -3,15 +3,9 @@ import Tile from Tile
 
 class Property(Tile):
 
-	numHouses = 0
-	isMorgaged = False
-	owner = ""
-
-	def __init__(self, name, buyValue, rentValues, houseCost, group):
-		
-		if not isinstance(name, str):
-			raise TypeError("name must be set to a string")
-		self.name = name
+	def __init__(self, name, type, boardPos, buyValue, rentValues, houseCost, group):
+	
+		Tile.__init__(self, name, type, boardPos)
 		
 		if not isinstance(buyValue, int):
 			raise TypeError("buyValue must be set to an int")
@@ -28,15 +22,10 @@ class Property(Tile):
 		if not isinstance(group, str):
 			raise TypeError("group must be set to a string")
 		self.group = group
-	
-	def SetName(new):
-		if not isinstance(new, str):
-			raise TypeError("name must be set to a string")
-			
-		name = new
 		
-	def getName():
-		return name
+		self.numHouses = 0
+		self.isMorgaged = False
+		self.owner = ""
 		
 	def SetBuyValue(new):
 		if not isinstance(new, int):

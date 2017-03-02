@@ -2,24 +2,25 @@ import random
 
 class Dice():
 
-	DoublesCount = 0
 
 	
-	def __init__(self, dice, JailRoll):
+	def __init__(self, dice = [6,6], JailRoll = 3):
 		if not isinstance(dice, list):
 			raise TypeError("dice must be a list")
 			
 		if not isinstance(JailRoll, int):
 			raise TypeError("JailOnRoll must be set to an integer")
 			
-		self.Dice = dice
+		self.dice = dice
 		self.JailOnRoll = JailRoll
+		
+		self.DoublesCount = 0
 	
 	def GetNumDice():
-		return len(Dice)
+		return len(dice)
 		
 	def SetDice( newDice ):
-		Dice = newDice
+		dice = newDice
 	
 	def SetDoubleCount(newCount):
 		DoublesCount = newCount
@@ -37,8 +38,21 @@ class Dice():
 		return JailOnRoll
 		
 	def RollDice():
-		roll = 0
-		for die in Dice:
-			roll += random.randrange(1, die)
+		rolls = []
+		for die in dice:
+			rolls.append(random.randrange(1, die))
 			
-		return roll
+		if checkDoubles(rolls):
+			DoublesCount += 1
+		else:
+			DoublesCount = 0
+			
+		return rolls.sum()
+		
+	def checkDoubles(iterator):
+		iterator = iter(iterator)
+		try:
+			first = next(iterator)
+		except StopIteration:
+			return True
+		return all(first == rest for rest in iterator)

@@ -2,7 +2,12 @@
 
 class Tile():
 
-	def __init__(self, type, boardPos, event):
+	def __init__(self, name, type, boardPos):
+	
+		if not isinstance(name, str):
+			raise TypeError("name must be set to a string")
+		self.name = name
+		
 		if not isinstance(type, str):
 			raise TypeError("type must be set to a string")
 		self.type = type
@@ -14,6 +19,15 @@ class Tile():
 		if not isinstance(event, str):
 			raise TypeError("event must be set to a string")
 		self.event = event
+		
+	def SetName(new):
+		if not isinstance(new, str):
+			raise TypeError("name must be set to a string")
+			
+		name = new
+		
+	def getName():
+		return name
 	
 	def SetTileType(new):
 	

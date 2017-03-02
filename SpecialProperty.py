@@ -2,10 +2,11 @@ import Tile from Tile
 
 class SpecialProperty(Tile):
 
-	isMorgaged = False
-	owner = ""
 
-	def __init__(self, name, buyValue, multipliers, group):
+	def __init__(self, name, type, boardPos, buyValue, multipliers, group):
+	
+		Tile.__init__(self, name, type, boardPos)
+		
 		if not isinstance(name, str):
 			raise TypeError("name must be set to a string")
 		self.name = name
@@ -21,16 +22,10 @@ class SpecialProperty(Tile):
 		if not isinstance(group, str):
 			raise TypeError("group must be set to a string")
 		self.group = group
-	
-	
-	def SetName(new):
-		if not isinstance(new, str):
-			raise TypeError("name must be set to a string")
-			
-		name = new
 		
-	def getName():
-		return name
+		self.isMorgaged = False
+		self.owner = ""
+	
 		
 	def SetBuyValue(new):
 		if not isinstance(new, int):
