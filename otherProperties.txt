@@ -1,0 +1,6 @@
+Kings Cross Station,station,5,200,[25,2],station;
+Electric Company,utility,12,150,[4,10],utility;
+Marylebone Station,station,15,200,[25,2],station;
+Fenchurch St Station,station,25,200,[25,2],station;
+Water Works,utility,28,150,[4,10],utility;
+Liverpool Street Station,station,35,200,[25,2],station;

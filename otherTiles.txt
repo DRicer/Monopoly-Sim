@@ -1,0 +1,10 @@
+GO,go,0;
+Community Chest,chest,2;
+Chance,chance,7;
+Jail,jail,10;
+Community Chest,chest,17;
+Free Parking,free,20;
+Chance,chance,22;
+Go To Jail,toJail,30;
+Community Chest,chest,33;
+Chance,chance,36;
