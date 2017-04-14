@@ -16,47 +16,33 @@ class Tile():
 			raise TypeError("boardPos must be set to a integer")
 		self.boardPos = boardPos
 		
-		if not isinstance(event, str):
-			raise TypeError("event must be set to a string")
-		self.event = event
 		
-	def SetName(new):
+	def SetName(self, new):
 		if not isinstance(new, str):
 			raise TypeError("name must be set to a string")
 			
-		name = new
+		self.name = new
 		
-	def getName():
-		return name
+	def GetName(self):
+		return self.name
 	
-	def SetTileType(new):
+	def SetTileType(self, new):
 	
 		if not isinstance(new, str):
 			raise TypeError("type must be set to a string")
 		
-		type = new
+		self.type = new
 	
-	def GetType():
-		return type
+	def GetType(self):
+		return self.type
 		
-	def SetBoardPos(new):
+	def SetBoardPos(self, new):
 	
 		if not isinstance(new, int):
 			raise TypeError("boardPos must be set to a integer")
 			
-		boardPos = new
+		self.boardPos = new
 		
-	def GetBoardPos():
-		return boardPos
-		
-	def SetEvent(new):
-		if not isinstance(new, str):
-			raise TypeError("event must be set to a string")
-		
-		event = new
-		
-	def GetEvent():
-		return event
-		
-	def DoEvent():
+	def GetBoardPos(self):
+		return self.boardPos
 		

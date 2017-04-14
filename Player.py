@@ -2,7 +2,7 @@
 
 class Player():
 	
-	def __init__(self, order, startCash = 1500, Strat):
+	def __init__(self, order, Strat, startCash = 1500):
 	
 		if not isinstance(order, int):
 			raise TypeError("rollOrder must be set to an integer")
@@ -21,52 +21,57 @@ class Player():
 		self.boardPos = 0
 		self.jailTurns = 0
 	
-	def GetRollOrder():
-		return rollOrder
+	def GetRollOrder(self):
+		return self.rollOrder
 		
-	def SetRollOrder(newOrder):
-		rollOrder = newOrder
+	def SetRollOrder(self, newOrder):
+		self.rollOrder = newOrder
 		
-	def AddProperty(property):
-		ownedProperties.append(property)
+	def AddProperty(self, property):
+		self.ownedProperties.append(property)
 		
-	def RemoveProperty(property):
-		ownedProperties.remove(property)
+	def RemoveProperty(self, property):
+		self.ownedProperties.remove(property)
 		
-	def GetOwnedPropertys():
-		return ownedProperties
+	def GetOwnedPropertys(self):
+		return self.ownedProperties
 		
-	def GainCash(amount):
-		Cash += amount
+	def GetCash(self):
+		return self.Cash
+		
+	def GainCash(self, amount):
+		self.Cash += amount
 	
-	def LoseCash(amount):
-		Cash -= amount
+	def LoseCash(self, amount):
+		self.Cash -= amount
 		
-	def SetCash(amount):
-		Cash = amount
+	def SetCash(self, amount):
+		self.Cash = amount
 	
-	def SetBoardPos(pos):
-		boardPos = pos
+	def SetBoardPos(self, pos):
+		if not isinstance(pos, int):
+			raise TypeError("BoardPos must be set to an integer")
+		self.boardPos = pos
 		
-	def GetBoardPos(pos):
-		return boardPos
+	def GetBoardPos(self):
+		return self.boardPos
 		
-	def MovePlayer(spaces):
-		boardPos += spaces
+	def MovePlayer(self, spaces):
+		self.boardPos += spaces
 		
-	def SetStrategy(strat):
-		Strategy = strat
+	def SetStrategy(self, strat):
+		self.Strategy = strat
 		
-	def GetStrategy():
-		return Strategy
+	def GetStrategy(self):
+		return self.Strategy
 		
-	def SetJailturns(turns):
-		jailTurns = turns
+	def SetJailTurns(self, turns):
+		self.jailTurns = turns
 		
-	def GetJailTurns():
-		return jailTurns
+	def GetJailTurns(self):
+		return self.jailTurns
 		
-	def decJailTurns():
-		jailTurns -= 1
+	def decJailTurns(self):
+		self.jailTurns -= 1
 		
 	

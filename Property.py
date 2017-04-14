@@ -1,5 +1,5 @@
-import Player from Player
-import Tile from Tile
+import Player
+from Tile import Tile
 
 class Property(Tile):
 
@@ -27,69 +27,69 @@ class Property(Tile):
 		self.isMorgaged = False
 		self.owner = ""
 		
-	def SetBuyValue(new):
+	def SetBuyValue(self, new):
 		if not isinstance(new, int):
 			raise TypeError("buyValue must be set to an int")
 			
-		buyValue = new	
+		self.buyValue = new	
 	
-	def GetbuyValue():
-		return buyValue
+	def GetBuyValue(self):
+		return self.buyValue
 		
-	def SetRentValues(new):
+	def SetRentValues(self, new):
 		if not isinstance(new, list):
 			raise TypeError("rentValues must be set to a list")
 			
-		rentValues = new
+		self.rentValues = new
 		
-	def GetRentValues():
-		return rentValues
+	def GetRentValues(self):
+		return self.rentValues
 		
-	def GetRent():
-		return rentValues[numHouses]
+	def GetRent(self):
+		return self.rentValues[self.numHouses]
 		
-	def SetNumHouses(new):
+	def SetNumHouses(self, new):
 		if not isinstance(new, int):
 			raise TypeError("numHouses must be set to an int")
 		
-		numHouses = new
+		self.numHouses = new
 			
-	def GetNumHouses():
-		return numHouses
+	def GetNumHouses(self):
+		return self.numHouses
 		
-	def SetHouseCost(new):
+	def SetHouseCost(self, new):
 		if not isinstance(new, int):
 			raise TypeError("houseCost must be set to an int")
 			
-		houseCost = new
+		self.houseCost = new
 			
-	def GetHouseCost():
-		return houseCost
+	def GetHouseCost(self):
+		return self.houseCost
 		
-	def SetIsMorgaged(new):
+	def SetIsMorgaged(self, new):
 		if not isinstance(new, bool):
 			raise TypeError("isMorgaged must be set to a boolean")
 			
-		isMorgaged = new
+		self.isMorgaged = new
 		
-	def GetIsMorgaged():
-		return isMorgaged
+	def GetIsMorgaged(self):
+		return self.isMorgaged
 		
-	def SetGroup():
+	def SetGroup(self):
 		if not isinstance(new, str):
 			raise TypeError("group must be set to a string")
 			
-		group = new
+		self.group = new
 		
-	def GetGroup():
-		return group
+	def GetGroup(self):
+		return self.group
 		
-	def SetOwner(new):
+	def SetOwner(self, new):
 		if not isinstance(new, Player):
 			raise TypeError("owner must be set to a Player")
 		
-		owner = new
+		self.owner = new
 			
-	def GetOwner():
-		return owner
+	def GetOwner(self):
+		return self.owner
 		

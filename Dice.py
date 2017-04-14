@@ -16,40 +16,40 @@ class Dice():
 		
 		self.DoublesCount = 0
 	
-	def GetNumDice():
-		return len(dice)
+	def GetNumDice(self):
+		return len(self.dice)
 		
-	def SetDice( newDice ):
-		dice = newDice
+	def SetDice(self, newDice ):
+		self.dice = newDice
 	
-	def SetDoubleCount(newCount):
-		DoublesCount = newCount
+	def SetDoubleCount(self, newCount):
+		self.DoublesCount = newCount
 	
-	def GetdoublesCount():
-		return DoublesCount
+	def GetdoublesCount(self):
+		return self.DoublesCount
 		
-	def IncrementDoublesCount():
-		DoublesCount += 1
+	def IncrementDoublesCount(self):
+		self.DoublesCount += 1
 		
-	def SetJailOnRoll( onRoll ):
-		JailOnRoll = onRoll
+	def SetJailOnRoll(self, onRoll ):
+		self.JailOnRoll = onRoll
 		
-	def GetJailonRoll():
-		return JailOnRoll
+	def GetJailonRoll(self):
+		return self.JailOnRoll
 		
-	def RollDice():
+	def RollDice(self):
 		rolls = []
-		for die in dice:
+		for die in self.dice:
 			rolls.append(random.randrange(1, die))
 			
-		if checkDoubles(rolls):
-			DoublesCount += 1
+		if self.checkDoubles(self, rolls):
+			self.DoublesCount += 1
 		else:
-			DoublesCount = 0
+			self.DoublesCount = 0
 			
 		return rolls.sum()
 		
-	def checkDoubles(iterator):
+	def checkDoubles(self, iterator):
 		iterator = iter(iterator)
 		try:
 			first = next(iterator)

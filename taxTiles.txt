@@ -1,2 +1,2 @@
-Income Tax,tax,4,200;
-Super Tax,tax,38,100;
+Income Tax;tax;4;200
+Super Tax;tax;38;100

@@ -1,4 +1,4 @@
-import Tile from Tile
+from Tile import Tile
 
 class SpecialProperty(Tile):
 
@@ -27,50 +27,50 @@ class SpecialProperty(Tile):
 		self.owner = ""
 	
 		
-	def SetBuyValue(new):
+	def SetBuyValue(self, new):
 		if not isinstance(new, int):
 			raise TypeError("buyValue must be set to an int")
 			
-		buyValue = new	
+		self.buyValue = new	
 	
-	def GetbuyValue():
-		return buyValue
+	def GetbuyValue(self):
+		return self.buyValue
 		
-	def SetMultipliers(new):
+	def SetMultipliers(self, new):
 		if not isinstance(new, list):
 			raise TypeError("multipliers must be set to an list")
 			
-		multipliers = new
+		self.multipliers = new
 		
-	def GetMultipliers():
-		return(multipliers)
+	def GetMultipliers(self):
+		return self.multipliers
 		
-	def GetRent(num):
-		return multipliers[num]
+	def GetRent(self, num):
+		return self.multipliers[num]
 		
-	def SetIsMorgaged(new):
+	def SetIsMorgaged(self, new):
 		if not isinstance(new, bool):
 			raise TypeError("isMorgaged must be set to a boolean")
 			
-		isMorgaged = new
+		self.isMorgaged = new
 		
-	def GetIsMorgaged():
-		return isMorgaged
+	def GetIsMorgaged(self):
+		return self.isMorgaged
 		
-	def SetGroup():
+	def SetGroup(self):
 		if not isinstance(new, str):
 			raise TypeError("group must be set to a string")
 			
-		group = new
+		self.group = new
 		
-	def GetGroup():
-		return group
+	def GetGroup(self):
+		return self.group
 		
-	def SetOwner(new):
+	def SetOwner(self, new):
 		if not isinstance(new, Player):
 			raise TypeError("owner must be set to a Player")
 		
-		owner = new
+		self.owner = new
 			
-	def GetOwner():
-		return owner
+	def GetOwner(self):
+		return self.owner
