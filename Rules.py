@@ -6,6 +6,7 @@ from SpecialProperty import SpecialProperty
 from TaxTile import TaxTile
 from Tile import Tile
 from MonopolyAPI import API
+from ImpordCards import ImportCards
 
 class Rules():
 
@@ -48,6 +49,8 @@ class Rules():
 	
 		CreatePlayers(self.numPlayers)
 		loadProperties()
+		loadCards = ImportCards()
+		Cards = loadCards.loadCards()
 		
 	def getTiles(self):
 		return self.tiles
