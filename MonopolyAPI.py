@@ -4,12 +4,16 @@ import Player
 import Property
 import SpecialProperty
 import Tile
+import Card
 
 class API():
 
 	def __init__(self, tiles, board):
 		self.tiles = tiles
 		self.board = board
+		self.cardApi = {"movePlayer" : self.movePlayer, "rollDice": self.rollDice, "sendToJail": self.sendToJail, "getOutOfJail": self.getOutOfJail, "checkIfPassGo": self.checkIfPassGo, "buyProperty": self.buyProperty,
+		"payRent" : self.payRent, "deductCash": self.deductCash, "giveCash": self.giveCash, "improveProperty": self.improveProperty, "sellHouses": self.sellHouses, "morgageProperty": self.morgageProperty,
+		"checkEvenBuild": self.checkEvenBuild, "sendTo": self.sendTo, "findNearest": self.findNearest}
 		
 	def movePlayer(self, player, move):
 		player.MovePlayer(move)
@@ -83,5 +87,74 @@ class API():
 	
 	def findNearest(self, player, group):
 		pass
+		
+	def playCard(self, card, player):
 	
+		def findProperty(name):
+			for i in range(0, len(self.tiles)):
+				if self.tiles[i].GetName() == name:
+					return self.tiles[i]
+					break
 	
+		params = []
+		cardActions = card.GetActions()
+		
+		for action in cardActions:
+			params = cardActions[action].split(",")
+			
+			for param in params:
+			
+				if "player" in param:
+				
+					if "self" in param:
+						params[params.index(param)] = player
+						
+				elif "property" in param:
+				
+					params[params.index(param)] = findProperty(param[param.index("{") + 1:-1])
+					
+				elif "int" in param:
+				
+					params[params.index(param)] = int(param[param.index("{") + 1:-1])
+					
+			if len(params) == 1:
+				self.cardApi[action](params[0])
+			elif len(params) == 2:
+				self.cardApi[action](params[0],params[1])	
+			elif len(params) == 3:
+				self.cardApi[action](params[0],params[1],params[2])			
+			elif len(params) == 4:
+				self.cardApi[action](params[0],params[1],params[2],params[3])			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					

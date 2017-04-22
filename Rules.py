@@ -6,7 +6,7 @@ from SpecialProperty import SpecialProperty
 from TaxTile import TaxTile
 from Tile import Tile
 from MonopolyAPI import API
-from ImpordCards import ImportCards
+from ImportCards import ImportCards
 
 class Rules():
 
@@ -45,12 +45,13 @@ class Rules():
 		self.board = Board()
 		self.numPlayers = 4
 		self.players = []
+		self.Cards = []
 		self.tiles = {}
 	
 		CreatePlayers(self.numPlayers)
 		loadProperties()
 		loadCards = ImportCards()
-		Cards = loadCards.loadCards()
+		self.Cards = loadCards.loadCards()
 		
 	def getTiles(self):
 		return self.tiles
@@ -60,10 +61,15 @@ class Rules():
 		
 	def getPlayer(self, player):
 		return self.players[player]
+	
+	def getCard(self, card):
+		return self.Cards[card]
 		
 if __name__ == "__main__":
 	game = Rules()
 	api = API(game.getTiles(), game.getBoard())
-	api.sendToJail(game.getPlayer(1))
-	print(game.getPlayer(1).GetJailTurns())
+	print(game.getPlayer(1).GetCash())
+	print(game.getPlayer(1).GetBoardPos())
+	api.playCard(game.getCard(0), game.getPlayer(1))
+	print(game.getPlayer(1).GetCash())
 	print(game.getPlayer(1).GetBoardPos())

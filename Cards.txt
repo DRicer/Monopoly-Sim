@@ -1,1 +1,1 @@
-1;Advance to Go;[sendTo(self,Go):giveCash(self,200)]
+1;Advance to Go;[sendTo(player{self},property{GO}):giveCash(player{self},int{200})]

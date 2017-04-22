@@ -17,11 +17,11 @@ class Card():
 				raise TypeError("actions must be a dict")
 		self.actions = actions
 	
-	def GetType():
+	def GetType(self):
 		return self.type
 		
-	def GetText():
+	def GetText(self):
 		return self.text
 	
-	def GetActions():
-		
+	def GetActions(self):
+		return self.actions
