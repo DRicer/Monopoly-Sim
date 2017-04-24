@@ -33,7 +33,7 @@ class SpecialProperty(Tile):
 			
 		self.buyValue = new	
 	
-	def GetbuyValue(self):
+	def GetBuyValue(self):
 		return self.buyValue
 		
 	def SetMultipliers(self, new):

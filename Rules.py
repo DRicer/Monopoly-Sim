@@ -7,6 +7,7 @@ from TaxTile import TaxTile
 from Tile import Tile
 from MonopolyAPI import API
 from ImportCards import ImportCards
+from MonopolyGUI import MonopolyGUI
 
 class Rules():
 
@@ -67,6 +68,8 @@ class Rules():
 		
 if __name__ == "__main__":
 	game = Rules()
+	visuals = MonopolyGUI()
+	visuals.load(game.getBoard().GetDimentions(), game.getTiles())
 	api = API(game.getTiles(), game.getBoard())
 	print(game.getPlayer(1).GetCash())
 	print(game.getPlayer(1).GetBoardPos())
