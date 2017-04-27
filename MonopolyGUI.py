@@ -89,4 +89,4 @@ class MonopolyGUI():
 							cost.grid()
 							
 				count += 1
-		return root.mainloop()
+		return root.update()

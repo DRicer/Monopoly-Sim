@@ -25,7 +25,7 @@ class Dice():
 	def SetDoubleCount(self, newCount):
 		self.DoublesCount = newCount
 	
-	def GetdoublesCount(self):
+	def GetDoublesCount(self):
 		return self.DoublesCount
 		
 	def IncrementDoublesCount(self):

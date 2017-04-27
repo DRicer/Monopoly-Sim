@@ -18,11 +18,15 @@ class API():
 	def movePlayer(self, player, move):
 		player.MovePlayer(move)
 		
+		
 	def rollDice(self, player, dice):
 		roll = dice.RollDice()
-		if dice.DoublesCount == dice.GetJailRoll:
+		if dice.GetDoublesCount() == dice.GetJailRoll():
 			sendToJail(player)
-	
+			dice.SetDoublesCount(0)
+		return roll
+		
+		
 	def sendToJail(self, player):
 		player.SetJailTurns(3)
 		for i in range(0, len(self.tiles)):
@@ -32,7 +36,13 @@ class API():
 	
 	def getOutOfJail(self, player):
 		player.SetJailTurns(0)
-	
+		
+	def tryOutOfJail(self, player, dice):
+		oldDoubles = dice
+		if dice.GetDoublesCount() == 1:
+			player.SetJailTurns(0)
+			dice.SetDoublesCount(0)
+			
 	def checkIfPassGo(self, player):
 		pass
 	
