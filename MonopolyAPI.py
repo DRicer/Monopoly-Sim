@@ -16,9 +16,11 @@ class API():
 		"checkEvenBuild": self.checkEvenBuild, "sendTo": self.sendTo, "findNearest": self.findNearest}
 		
 	def movePlayer(self, player, move):
-		player.MovePlayer(move)
-		
-		
+		player.SetBoardPos(player.GetBoardPos() + move)
+		maxTile = len(self.tiles)
+		if player.GetBoardPos() >= maxTile:
+			player.SetBoardPos(player.getBoardPos - maxTile)
+			
 	def rollDice(self, player, dice):
 		roll = dice.RollDice()
 		if dice.GetDoublesCount() == dice.GetJailRoll():
@@ -43,8 +45,11 @@ class API():
 			player.SetJailTurns(0)
 			dice.SetDoublesCount(0)
 			
-	def checkIfPassGo(self, player):
-		pass
+	def checkIfPassGo(self, player, oldTile):
+		if player.GetBoardPos() < oldTile:
+			return True
+		else:
+			return False
 	
 	def buyProperty(self, player, property):
 		player.LoseCash(property.GetBuyValue())
@@ -93,11 +98,40 @@ class API():
 		pass
 	
 	def sendTo(self, player, property):
-		pass
+		player.SetBoardPos(property.GetBoardPos())
 	
 	def findNearest(self, player, group):
-		pass
+	
+		found = False
+		pos = player.getBoardPos()
+		maxTile = len(self.tiles)	
+		while not found:
+			pos += 1
+			if pos == maxTile:
+				pos = 0
+				
+			if tiles[pos].GetGroup() == group:
+				found = true
+				nearest = tiles[pos]
+				
+		return nearest
+	
+	def hasMonopoly(self, player):
+		owned = player.GetOwnedPropertys()
+		groups = {}
+		for property in owned:
+			if property.GetGroup() in groups:
+				groups[property.GetGroup()] += 1
+				if groups[property.GetGroup()] == property.GetInGroup():
+					return True
+			else:
+				groups[property.GetGroup()] = 1
+				if groups[property.GetGroup()] == property.GetInGroup():
+					return True
+		return False
 		
+		for group in groups:
+			if groups[group] == 
 	def playCard(self, card, player):
 	
 		def findProperty(name):
@@ -136,7 +170,7 @@ class API():
 			elif len(params) == 4:
 				self.cardApi[action](params[0],params[1],params[2],params[3])			
 					
-					
+			return False		
 					
 					
 					

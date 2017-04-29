@@ -1,4 +1,3 @@
-GO;go;0
 Community Chest;chest;2
 Chance;chance;7
 Jail;jail;10

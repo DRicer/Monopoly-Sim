@@ -23,6 +23,7 @@ class SpecialProperty(Tile):
 			raise TypeError("group must be set to a string")
 		self.group = group
 		
+		
 		self.isMorgaged = False
 		self.owner = ""
 	
@@ -65,6 +66,7 @@ class SpecialProperty(Tile):
 		
 	def GetGroup(self):
 		return self.group
+		
 		
 	def SetOwner(self, new):
 		if not isinstance(new, Player):

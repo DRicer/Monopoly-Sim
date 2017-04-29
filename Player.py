@@ -56,8 +56,6 @@ class Player():
 	def GetBoardPos(self):
 		return self.boardPos
 		
-	def MovePlayer(self, spaces):
-		self.boardPos += spaces
 		
 	def SetStrategy(self, strat):
 		self.Strategy = strat

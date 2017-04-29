@@ -9,6 +9,8 @@ from MonopolyAPI import API
 from ImportCards import ImportCards
 from MonopolyGUI import MonopolyGUI
 
+from random import shuffle
+
 class Rules():
 
 	def __init__(self):
@@ -46,13 +48,18 @@ class Rules():
 		self.board = Board()
 		self.numPlayers = 4
 		self.players = []
-		self.Cards = []
+		self.Cards = {}
 		self.tiles = {}
 	
 		CreatePlayers(self.numPlayers)
 		loadProperties()
+		
+		#load cards
 		loadCards = ImportCards()
 		self.Cards = loadCards.loadCards()
+		#shuffle card piles
+		shuffle(self.Cards["chance"])
+		shuffle(self.Cards["chest"])
 		
 	def getTiles(self):
 		return self.tiles
@@ -80,8 +87,8 @@ class Rules():
 			return first
 		def isGameOver(players):
 			bankrupt = 0
-			for i in range(0, len(players))
-				if players[i].GetCash() < 0
+			for i in range(0, len(players)):
+				if players[i].GetCash() < 0:
 					bankrupt += 1
 					
 			if bankrupt == len(players) - 1:
@@ -91,26 +98,65 @@ class Rules():
 		
 		def nextPlayer(Player):	
 			Player += 1
-				if Player == len(players):
-					Player = 0
+			if Player == len(players):
+				Player = 0
 			return Player
 			
+		def	drawCard(type, player, api):
+			card = self.Cards[type][0]
+			del	self.Cards[type][0]
+			keep = api.playCard(player, card)
+			if not keep:
+				self.Cards[type].append(card)
 		
 		currentPlayer = DecideTurnOrder(len(self.players), self.dice)
 		while not(isGameOver(self.players)):
 			if self.players[currentPlayer].GetCash() < 0:
-				currentPlayer = nextPlayer(currentPlayer)
-			
+				playerNum = nextPlayer(currentPlayer)
+				currentPlayer = self.players[playerNum]
 			else:
-				if self.players[currentPlayer].GetJailTurns() > 0: #if in jail
-					self.players[currentPlayer].decJailTurns() #reduce jail turns
-					api.tryOutOfJail(self.players[currentPlayer], self.dice) #attempt to get out of jail using dice roll
-				else:
-					api.movePlayer(self.players[currentPlayer], api.rollDice(self.players[currentPlayer], self.dice))
+			
+				if currentPlayer.GetJailTurns() > 0: #if in jail
+					currentPlayer.decJailTurns() #reduce jail turns
+					api.tryOutOfJail(currentPlayer, self.dice) #attempt to get out of jail using dice roll
 					
-		
-		
-		
+				else:
+				
+					roll = api.rollDice(currentPlayer, self.dice) # roll dice
+					oldTile = currentPlayer.GetBoardPos() #store previous tile 
+					api.movePlayer(currentPlayer,roll) #move player
+					if api.checkIfPassGo(currentPlayer, oldTile): #check iff passed GO and pay amount
+						api.deductCash(currentPlayer, self.tiles[0].GetTax())
+					currentTile = tiles[currentPlayer.GetBoardPos()]
+					
+					#thge tile is a ownavle property tile
+					if currentTile.GetType() in {"standard", "utility", "station"}:
+						#is the property owned
+						if currentTile.GetOwner() == "": #no
+							
+						else: #yes
+							#pay the rent to the owner
+							if not(currentTile.GetType() == "utility"):
+								api.payRent(currentPlayer, currentTile.GetOwner(), currentTile)
+							else:
+								api.payRent(currentPlayer, currentTile.GetOwner(), currentTile, roll)
+								
+					#the tile is a card tile			
+					elif currentTile.GetType() in {"chance", "chest"}:
+						drawCard(currentTile.GetType(), currentPlayer, api)
+						
+					#tile is a tax tile	
+					elif currentTile.GetType() == "tax":
+						api.deductCash(currentPlayer, currentTile.GetTax())
+					
+					elif currentTile.GetType() in {"free", "jail"}:
+						
+					elif currentTile.GetType() == "toJail":
+						api.sendToJail(currentPlayer)
+						
+					if not(currentPlayer.GetJailTurns() > 0): #if not in jail
+						if api.hasMonopoly(currentPlayer):
+							#buy houses
 		
 if __name__ == "__main__":
 	game = Rules()

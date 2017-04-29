@@ -3,7 +3,7 @@ from Tile import Tile
 
 class Property(Tile):
 
-	def __init__(self, name, type, boardPos, buyValue, rentValues, houseCost, group):
+	def __init__(self, name, type, boardPos, buyValue, rentValues, houseCost, group, inGroup):
 	
 		Tile.__init__(self, name, type, boardPos)
 		
@@ -22,6 +22,10 @@ class Property(Tile):
 		if not isinstance(group, str):
 			raise TypeError("group must be set to a string")
 		self.group = group
+		
+		if not isinstance(inGroup, int):
+			raise TypeError("Group amount must be set to an int")
+		self.inGroup = inGroup
 		
 		self.numHouses = 0
 		self.isMorgaged = False
@@ -83,6 +87,9 @@ class Property(Tile):
 		
 	def GetGroup(self):
 		return self.group
+	
+	def GetInGroup(self):
+		return self.inGroup
 		
 	def SetOwner(self, new):
 		if not isinstance(new, Player):
