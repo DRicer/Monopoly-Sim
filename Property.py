@@ -30,6 +30,7 @@ class Property(Tile):
 		self.numHouses = 0
 		self.isMorgaged = False
 		self.owner = ""
+		self.earnings = 0
 		
 	def SetBuyValue(self, new):
 		if not isinstance(new, int):
@@ -99,4 +100,10 @@ class Property(Tile):
 			
 	def GetOwner(self):
 		return self.owner
+		
+	def AddEarnings(self, amount):
+		self.earnings += amount
+		
+	def DeductEarnings(self, amount):
+		self.earnings -=amount
 		

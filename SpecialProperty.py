@@ -26,7 +26,7 @@ class SpecialProperty(Tile):
 		
 		self.isMorgaged = False
 		self.owner = ""
-	
+		self.earnings = 0
 		
 	def SetBuyValue(self, new):
 		if not isinstance(new, int):
@@ -76,3 +76,9 @@ class SpecialProperty(Tile):
 			
 	def GetOwner(self):
 		return self.owner
+	
+	def AddEarnings(self, amount):
+		self.earnings += amount
+		
+	def DeductEarnings(self, amount):
+		self.earnings -=amount

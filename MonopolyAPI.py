@@ -86,17 +86,62 @@ class API():
 	
 	def improveProperty(self, player, property):
 		property.SetNumHouses(property.GetNumHouses() + 1)
+		player.LoseCash(property.GetHouseCost())
 	
 	def sellHouses(self, player, property):
 		property.SetNumHouses(property.GetNumHouses() - 1)
-	
+		player.GainCash(property.GetHouseCost())
+		
 	def morgageProperty(self, player, property):
 		property.SetIsMorgaged(true)
 		player.GainCash(property.GetBuyValue() * board.GetMorgagePercent())
 		
-	def checkEvenBuild(self, group):
-		pass
-	
+	def checkEvenBuild(self, group, player):
+		owned = player.GetOwnedPropertys()
+		groupProperties = []
+		for property in owned:
+			if property.GetGroup() == group:
+				groupProperties.append(property)
+		compariter = groupProperties[0].GetNumHouses()
+		even = False
+		for property in groupProperties:
+			if ((property.GetNumHouses() - 1) == compariter) or ((property.GetNumHouses() + 1) == compariter):
+				even = True
+			else:
+				even = False
+		
+		return even		
+			
+	def checkIfEvenBuild(self, buildProperty, player):
+		owned = player.GetOwnedPropertys()
+		groupProperties = []
+		group = buildProperty.GetGroup()
+		
+		for property in owned:
+			if property.GetGroup() == group:
+				groupProperties.append(property)
+				
+		compariter = buildProperty.GetNumHouses() + 1
+		even = False
+		
+		for property in groupProperties:
+			if ((property.GetNumHouses() - 1) == compariter) or ((property.GetNumHouses() + 1) == compariter):
+				even = True
+			else:
+				even = False	
+		
+		
+		return even			
+	def getHighestRent(self, player):
+		highest = 0
+		for property in tiles():
+			if not(property.GetOwner() == player):
+				if property.GetRent() > highest:
+					highest = property.GetRent()
+					
+		return highest
+		
+		
 	def sendTo(self, player, property):
 		player.SetBoardPos(property.GetBoardPos())
 	
@@ -116,7 +161,7 @@ class API():
 				
 		return nearest
 	
-	def hasMonopoly(self, player):
+	def hasMonopoly(self, player): #check if the  player has at least one monopoly
 		owned = player.GetOwnedPropertys()
 		groups = {}
 		for property in owned:
@@ -130,8 +175,18 @@ class API():
 					return True
 		return False
 		
-		for group in groups:
-			if groups[group] == 
+	def inMonopoly(self, property, player):
+		group = property.GetGroup()
+		playerProps = player.GetOwnedPropertys()
+		count = 0
+		for prop in  playerProps:
+			if prop.GetGroup() == group:
+				count += 1
+		if count == property.GetInGroup():
+			return True
+		else:
+			return False
+				
 	def playCard(self, card, player):
 	
 		def findProperty(name):

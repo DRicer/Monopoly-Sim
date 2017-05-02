@@ -76,7 +76,7 @@ class Rules():
 
 	def RunGame(self, api):
 		
-		def DecideTurnOrder(players, dice):
+		def DecideTurnOrder(players, dice): #decide a initial player based on dice rolls
 			first = 0
 			highestRoll == 0
 			for i in range(0, players):
@@ -85,7 +85,7 @@ class Rules():
 					highestRoll = roll
 					first = i
 			return first
-		def isGameOver(players):
+		def isGameOver(players): #check if the game is finished
 			bankrupt = 0
 			for i in range(0, len(players)):
 				if players[i].GetCash() < 0:
@@ -96,19 +96,39 @@ class Rules():
 			else:
 				return False
 		
-		def nextPlayer(Player):	
+		def nextPlayer(Player):	#move to next players turn
 			Player += 1
 			if Player == len(players):
 				Player = 0
 			return Player
 			
-		def	drawCard(type, player, api):
+		def	drawCard(type, player, api):#draw a card of correct type
 			card = self.Cards[type][0]
 			del	self.Cards[type][0]
 			keep = api.playCard(player, card)
 			if not keep:
 				self.Cards[type].append(card)
+				
+		def canAfford(player, cost):	
+			if (cost + api.getHighestRent(player)) < player.GetCash():
+				return True
+			else:
+				return False
 		
+		def isBuyingHouses(player, api): #decide whether the player is buying houses and for which property
+			playersProperties = player.GetOwnedPropertys()
+			lowestCost = 9999
+			cheapestHouseProperty = ""
+			for property in playersProperties:
+				if api.inMonopoly(property, player):
+					if property.GetHouseCost() < lowestCost and property.GetNumHouses() < 5 and api.checkIfEvenBuild(property, player):
+						lowestCost = property.GetHouseCost()
+						cheapestHouseProperty = property
+			if canAfford(player, lowestCost) :
+				return [True, cheapestHouseProperty]
+			else:
+				return [False]
+				
 		currentPlayer = DecideTurnOrder(len(self.players), self.dice)
 		while not(isGameOver(self.players)):
 			if self.players[currentPlayer].GetCash() < 0:
@@ -125,7 +145,7 @@ class Rules():
 					roll = api.rollDice(currentPlayer, self.dice) # roll dice
 					oldTile = currentPlayer.GetBoardPos() #store previous tile 
 					api.movePlayer(currentPlayer,roll) #move player
-					if api.checkIfPassGo(currentPlayer, oldTile): #check iff passed GO and pay amount
+					if api.checkIfPassGo(currentPlayer, oldTile): #check if passed GO and pay amount
 						api.deductCash(currentPlayer, self.tiles[0].GetTax())
 					currentTile = tiles[currentPlayer.GetBoardPos()]
 					
@@ -157,6 +177,11 @@ class Rules():
 					if not(currentPlayer.GetJailTurns() > 0): #if not in jail
 						if api.hasMonopoly(currentPlayer):
 							#buy houses
+							buyingHouses = isBuyingHouses(currentPlayer)
+							while buyingHouses[0]:
+								api.improveProperty(currentPlayer, buyingHouses[1])
+								buyingHouses = isBuyingHouses(currentPlayer)
+							
 		
 if __name__ == "__main__":
 	game = Rules()
