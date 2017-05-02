@@ -46,8 +46,17 @@ class SpecialProperty(Tile):
 	def GetMultipliers(self):
 		return self.multipliers
 		
-	def GetRent(self, num):
-		return self.multipliers[num]
+	def GetRent(self):
+		num = 0
+			
+			for tile in self.owner.GetOwnedPropertys():
+			
+				if tile.GetType() == self.type):
+					num += 1
+		if self.type == "utility":
+			return self.multipliers[num - 1]
+		elif self.type == "station":
+			return self.multipliers[0]*(self.multipliers[1]**num-1)
 		
 	def SetIsMorgaged(self, new):
 		if not isinstance(new, bool):

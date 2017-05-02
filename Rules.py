@@ -23,7 +23,7 @@ class Rules():
 			properties = open("properties.txt")
 			for line in properties:
 				params = line.split(";")
-				self.tiles[int(params[2])] = (Property(params[0], params[1], int(params[2]), int(params[3]), [int(s) for s in params[4].split(",")], int(params[5]), params[6]))
+				self.tiles[int(params[2])] = (Property(params[0], params[1], int(params[2]), int(params[3]), [int(s) for s in params[4].split(",")], int(params[5]), params[6], int(params[7])))
 			properties.close()
 			
 			specialProperties = open("otherProperties.txt")
@@ -128,10 +128,41 @@ class Rules():
 				return [True, cheapestHouseProperty]
 			else:
 				return [False]
+			
+		def sellForCash(player, api):
+			properties = player.GetOwnedPropertys()
+			lowestCost = 9999
+			selling = ""
+			sellImprovments = False
+			
+				for property in properties:
+					if (property.GetBuyValue() < lowestCost) and (not(api.inMonopoly(property, player))) and not(property.GetIsMorgaged()):
+						lowestCost = property.GetBuyValue()
+						selling = property
+						
+				if lowestCost == 9999:
+					for property in properties:
+						if (property.GetBuyValue() < lowestCost and not(property.GetIsMorgaged()) and (api.getNumHouses(player, property.GetGroup()) == 0):
+							lowestCost = property.GetBuyValue()
+							selling = property
+							
+				if lowestCost == 9999:
+					for property in properties:
+						if (property.GetHouseCost() < lowestCost and not(property.GetIsMorgaged()) and  property.GetNumHouses() > 0:
+							sellImprovments = True
+							lowestCost = property.GetHouseCost()
+							selling = property
 				
-		currentPlayer = DecideTurnOrder(len(self.players), self.dice)
-		while not(isGameOver(self.players)):
-			if self.players[currentPlayer].GetCash() < 0:
+				if sellImprovments == True:
+					api.sellHouses(player, selling)
+				elif sellImprovments == False:
+					api.morgageProperty(player, selling)
+				
+		currentPlayer = DecideTurnOrder(len(self.players), self.dice)#decide first player
+		
+		while not(isGameOver(self.players)):#while the game is not over
+		
+			if api.isBankrupt(currentPlayer):#if player is bankkrupt move to next player
 				playerNum = nextPlayer(currentPlayer)
 				currentPlayer = self.players[playerNum]
 			else:
@@ -153,13 +184,35 @@ class Rules():
 					if currentTile.GetType() in {"standard", "utility", "station"}:
 						#is the property owned
 						if currentTile.GetOwner() == "": #no
-							
+							if canAfford(currentPlayer, currentTile.GetBuyValue()):#can afford the property
+								api.buyProperty(currentPlayer, currentTile)#buy property
 						else: #yes
 							#pay the rent to the owner
-							if not(currentTile.GetType() == "utility"):
-								api.payRent(currentPlayer, currentTile.GetOwner(), currentTile)
-							else:
-								api.payRent(currentPlayer, currentTile.GetOwner(), currentTile, roll)
+							if currentTile.GetOwner().GetJailTurns() == 0:#if tile owner is not in jail
+								if not(currentTile.GetType() == "utility"):
+									if currentPlayer.GetCash() > currentTile.GetRent():#if can afford rent
+										api.payRent(currentPlayer, currentTile.GetOwner(), currentTile)
+									else:	
+										bankrupt = False
+										while currentPlayer.GetCash() < currentTile.GetRent() and bankrupt == False:#while the player doesnt have enough money and is not bankrupt
+											sellForCash(currentPlayer, api)
+											bankrupt = api.isBankrupt(currentPlayer, currentTile.GetRent())
+										if bankrupt = True:# if bankrupt give all properties and cash to bankrupting player
+											currentTile.GetOwner().GetOwnedPropertys().append(currentPlayer.GetOwnedPropertys())
+											api.giveCash(currentTile.GetOwner(), currentPlayer.GetCash())
+											api.deductCash(currentPlayer, currentPlayer.GetCash())
+								else:
+									if currentPlayer.GetCash() > (currentTile.GetRent() * roll):#if can afford rent
+										api.payRent(currentPlayer, currentTile.GetOwner(), currentTile, roll)
+									else:	
+										bankrupt = False
+										while currentPlayer.GetCash() < (currentTile.GetRent()  * roll) and bankrupt == False:#while the player doesnt have enough money and is not bankrupt
+											sellForCash(currentPlayer, api)
+											bankrupt = api.isBankrupt(currentPlayer, currentTile.GetRent() * roll)
+										if bankrupt = True:# if bankrupt give all properties and cash to bankrupting player
+											currentTile.GetOwner().GetOwnedPropertys().append(currentPlayer.GetOwnedPropertys())
+											api.giveCash(currentTile.GetOwner(), currentPlayer.GetCash())
+											api.deductCash(currentPlayer, currentPlayer.GetCash())
 								
 					#the tile is a card tile			
 					elif currentTile.GetType() in {"chance", "chest"}:
@@ -170,7 +223,7 @@ class Rules():
 						api.deductCash(currentPlayer, currentTile.GetTax())
 					
 					elif currentTile.GetType() in {"free", "jail"}:
-						
+						pass
 					elif currentTile.GetType() == "toJail":
 						api.sendToJail(currentPlayer)
 						

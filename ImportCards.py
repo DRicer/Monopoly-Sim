@@ -19,9 +19,9 @@ class ImportCards():
 				action = actions[i].split("(")[0]
 				arguments = actions[i].split("(")[1]
 				decodedAtions[action] = arguments.strip(")")
-				if type = 1:
+				if type == 1:
 					chance.append(Card(type, text, decodedAtions))
-				elif type = 2:
+				elif type == 2:
 					chest.append(Card(type, text, decodedAtions))
 					
 				cardList["chance"] = chance

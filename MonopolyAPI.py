@@ -58,25 +58,9 @@ class API():
 		
 	def payRent(self, paying, recieving, property, multiplier = 1):
 	
-		if property.GetType() == "standard":
 			paying.LoseCash(property.GetRent() * multiplier)
 			recieving.GainCash(property.GetRent() * multiplier)
-			
-		else:
-			num = 0
-			
-			for tile in recieving.GetOwnedPropertys():
-			
-				if tile.GetType() == property.GetType():
-					num += 1
-			
-			if property.GetType() == "station":
-				paying.LoseCash(property.GetRent(2**(num-1) * multiplier))
-				recieving.GainCash(property.GetRent(2**(num-1) * multiplier))
-				
-			elif property.GetType() == "utility":
-				paying.LoseCash(property.GetRent(num) * multiplier)
-				recieving.GainCash(property.GetRent(num) * multiplier)
+			property.AddEarnings(property.GetRent() * multiplier)
 	
 	def deductCash(self, player, amount):
 		player.LoseCash(amount)
@@ -87,14 +71,26 @@ class API():
 	def improveProperty(self, player, property):
 		property.SetNumHouses(property.GetNumHouses() + 1)
 		player.LoseCash(property.GetHouseCost())
+		property.DeductEarnings(property.GetHouseCost())
 	
 	def sellHouses(self, player, property):
 		property.SetNumHouses(property.GetNumHouses() - 1)
-		player.GainCash(property.GetHouseCost())
+		player.GainCash(property.GetHouseCost() * board.houseSellPercent())
+		property.AddEarnings(property.GetHouseCost() * board.houseSellPercent())
 		
 	def morgageProperty(self, player, property):
 		property.SetIsMorgaged(true)
 		player.GainCash(property.GetBuyValue() * board.GetMorgagePercent())
+	
+	def isBankrupt(self, player, toPay = 0):
+		bankrupt = True
+		for property in  player.GetOwnedPropertys:
+			if property.GetIsMorgaged() == False:
+				bankrupt = False
+		if player.GetCash() - toPay >= 0:
+			bankrupt = False
+			
+		return bankrupt
 		
 	def checkEvenBuild(self, group, player):
 		owned = player.GetOwnedPropertys()
@@ -131,7 +127,22 @@ class API():
 				even = False	
 		
 		
-		return even			
+		return even		
+
+	def getNumHouses(player, group = "all"):#get the number of imporvements a player owns or in a specific group
+		properties = player.GetOwnedPropertys()
+		houses = 0
+		if group == "all":
+			for property in properties:
+				houses += property.getNumHouses()
+				
+		else:
+			for property in properties:
+				if property.GetGroup() == group
+					houses += property.getNumHouses()
+		
+		return houses
+		
 	def getHighestRent(self, player):
 		highest = 0
 		for property in tiles():
