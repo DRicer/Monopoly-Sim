@@ -22,7 +22,7 @@ class Dice():
 	def SetDice(self, newDice ):
 		self.dice = newDice
 	
-	def SetDoubleCount(self, newCount):
+	def SetDoublesCount(self, newCount):
 		self.DoublesCount = newCount
 	
 	def GetDoublesCount(self):
@@ -42,12 +42,12 @@ class Dice():
 		for die in self.dice:
 			rolls.append(random.randrange(1, die))
 			
-		if self.checkDoubles(self, rolls):
+		if self.checkDoubles(rolls):
 			self.DoublesCount += 1
 		else:
 			self.DoublesCount = 0
 			
-		return rolls.sum()
+		return sum(rolls)
 		
 	def checkDoubles(self, iterator):
 		iterator = iter(iterator)

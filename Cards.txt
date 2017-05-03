@@ -1,1 +1,2 @@
 1;Advance to Go;[sendTo(player{self},property{GO}):giveCash(player{self},int{200})]
+2;Advance to Go;[sendTo(player{self},property{GO}):giveCash(player{self},int{200})]

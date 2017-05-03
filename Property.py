@@ -1,4 +1,4 @@
-import Player
+from Player import Player
 from Tile import Tile
 
 class Property(Tile):

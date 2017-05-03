@@ -90,3 +90,6 @@ class MonopolyGUI():
 							
 				count += 1
 		return root.update()
+		
+	def update(self, players):
+		pass

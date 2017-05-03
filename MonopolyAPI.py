@@ -19,12 +19,12 @@ class API():
 		player.SetBoardPos(player.GetBoardPos() + move)
 		maxTile = len(self.tiles)
 		if player.GetBoardPos() >= maxTile:
-			player.SetBoardPos(player.getBoardPos - maxTile)
+			player.SetBoardPos(player.GetBoardPos() - maxTile)
 			
 	def rollDice(self, player, dice):
 		roll = dice.RollDice()
-		if dice.GetDoublesCount() == dice.GetJailRoll():
-			sendToJail(player)
+		if dice.GetDoublesCount() == dice.GetJailonRoll():
+			self.sendToJail(player)
 			dice.SetDoublesCount(0)
 		return roll
 		
@@ -84,7 +84,9 @@ class API():
 	
 	def isBankrupt(self, player, toPay = 0):
 		bankrupt = True
-		for property in  player.GetOwnedPropertys:
+		print(player)
+		ownedPropertys = player.GetOwnedPropertys()
+		for property in  ownedPropertys:
 			if property.GetIsMorgaged() == False:
 				bankrupt = False
 		if player.GetCash() - toPay >= 0:
@@ -138,17 +140,19 @@ class API():
 				
 		else:
 			for property in properties:
-				if property.GetGroup() == group
+				if property.GetGroup() == group:
 					houses += property.getNumHouses()
 		
 		return houses
 		
 	def getHighestRent(self, player):
 		highest = 0
-		for property in tiles():
-			if not(property.GetOwner() == player):
-				if property.GetRent() > highest:
-					highest = property.GetRent()
+		print(player)
+		for property in self.tiles:
+			if hasattr(self.tiles[property], "GetOwner"):
+				if not(self.tiles[property].GetOwner() == player):
+					if self.tiles[property].GetRent() > highest:
+						highest = self.tiles[property].GetRent()
 					
 		return highest
 		
@@ -176,14 +180,15 @@ class API():
 		owned = player.GetOwnedPropertys()
 		groups = {}
 		for property in owned:
-			if property.GetGroup() in groups:
-				groups[property.GetGroup()] += 1
-				if groups[property.GetGroup()] == property.GetInGroup():
-					return True
-			else:
-				groups[property.GetGroup()] = 1
-				if groups[property.GetGroup()] == property.GetInGroup():
-					return True
+			if property.GetType() == "standard":
+				if property.GetGroup() in groups:
+					groups[property.GetGroup()] += 1
+					if groups[property.GetGroup()] == property.GetInGroup():
+						return True
+				else:
+					groups[property.GetGroup()] = 1
+					if groups[property.GetGroup()] == property.GetInGroup():
+						return True
 		return False
 		
 	def inMonopoly(self, property, player):

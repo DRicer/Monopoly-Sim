@@ -1,4 +1,5 @@
 from Tile import Tile
+from Player import Player
 
 class SpecialProperty(Tile):
 
@@ -48,16 +49,17 @@ class SpecialProperty(Tile):
 		
 	def GetRent(self):
 		num = 0
-			
+		if not(self.owner == ""):	
 			for tile in self.owner.GetOwnedPropertys():
-			
-				if tile.GetType() == self.type):
+				
+				if tile.GetType() == self.type:
 					num += 1
-		if self.type == "utility":
-			return self.multipliers[num - 1]
-		elif self.type == "station":
-			return self.multipliers[0]*(self.multipliers[1]**num-1)
-		
+			if self.type == "utility":
+				return self.multipliers[num - 1]
+			elif self.type == "station":
+				return self.multipliers[0]*(self.multipliers[1]**num-1)
+		else:
+			return 0
 	def SetIsMorgaged(self, new):
 		if not isinstance(new, bool):
 			raise TypeError("isMorgaged must be set to a boolean")

@@ -8,6 +8,7 @@ from Tile import Tile
 from MonopolyAPI import API
 from ImportCards import ImportCards
 from MonopolyGUI import MonopolyGUI
+import time
 
 from random import shuffle
 
@@ -74,13 +75,13 @@ class Rules():
 		return self.Cards[card]
 
 
-	def RunGame(self, api):
+	def runGame(self, api, gui):
 		
 		def DecideTurnOrder(players, dice): #decide a initial player based on dice rolls
 			first = 0
-			highestRoll == 0
+			highestRoll = 0
 			for i in range(0, players):
-				roll = dice.Rolldice()
+				roll = dice.RollDice()
 				if roll > highestRoll:
 					highestRoll = roll
 					first = i
@@ -96,16 +97,16 @@ class Rules():
 			else:
 				return False
 		
-		def nextPlayer(Player):	#move to next players turn
-			Player += 1
-			if Player == len(players):
-				Player = 0
-			return Player
+		def nextPlayer(player):	#move to next players turn
+			player = self.players.index(player) + 1
+			if player == len(self.players):
+				player = 0
+			return player
 			
 		def	drawCard(type, player, api):#draw a card of correct type
 			card = self.Cards[type][0]
 			del	self.Cards[type][0]
-			keep = api.playCard(player, card)
+			keep = api.playCard(card, player)
 			if not keep:
 				self.Cards[type].append(card)
 				
@@ -135,30 +136,30 @@ class Rules():
 			selling = ""
 			sellImprovments = False
 			
+			for property in properties:
+				if (property.GetBuyValue() < lowestCost) and (not(api.inMonopoly(property, player))) and not(property.GetIsMorgaged()):
+					lowestCost = property.GetBuyValue()
+					selling = property
+					
+			if lowestCost == 9999:
 				for property in properties:
-					if (property.GetBuyValue() < lowestCost) and (not(api.inMonopoly(property, player))) and not(property.GetIsMorgaged()):
+					if (property.GetBuyValue() < lowestCost) and (not(property.GetIsMorgaged())) and (api.getNumHouses(player, property.GetGroup()) == 0):
 						lowestCost = property.GetBuyValue()
 						selling = property
 						
-				if lowestCost == 9999:
-					for property in properties:
-						if (property.GetBuyValue() < lowestCost and not(property.GetIsMorgaged()) and (api.getNumHouses(player, property.GetGroup()) == 0):
-							lowestCost = property.GetBuyValue()
-							selling = property
-							
-				if lowestCost == 9999:
-					for property in properties:
-						if (property.GetHouseCost() < lowestCost and not(property.GetIsMorgaged()) and  property.GetNumHouses() > 0:
-							sellImprovments = True
-							lowestCost = property.GetHouseCost()
-							selling = property
+			if lowestCost == 9999:
+				for property in properties:
+					if (property.GetHouseCost() < lowestCost) and not(property.GetIsMorgaged()) and  property.GetNumHouses() > 0:
+						sellImprovments = True
+						lowestCost = property.GetHouseCost()
+						selling = property
+			
+			if sellImprovments == True:
+				api.sellHouses(player, selling)
+			elif sellImprovments == False:
+				api.morgageProperty(player, selling)
 				
-				if sellImprovments == True:
-					api.sellHouses(player, selling)
-				elif sellImprovments == False:
-					api.morgageProperty(player, selling)
-				
-		currentPlayer = DecideTurnOrder(len(self.players), self.dice)#decide first player
+		currentPlayer = self.players[DecideTurnOrder(len(self.players), self.dice)]#decide first player
 		
 		while not(isGameOver(self.players)):#while the game is not over
 		
@@ -178,10 +179,10 @@ class Rules():
 					api.movePlayer(currentPlayer,roll) #move player
 					if api.checkIfPassGo(currentPlayer, oldTile): #check if passed GO and pay amount
 						api.deductCash(currentPlayer, self.tiles[0].GetTax())
-					currentTile = tiles[currentPlayer.GetBoardPos()]
+					currentTile = self.tiles[currentPlayer.GetBoardPos()]
 					
 					#thge tile is a ownavle property tile
-					if currentTile.GetType() in {"standard", "utility", "station"}:
+					if currentTile.GetType() in ["standard", "utility", "station"]:
 						#is the property owned
 						if currentTile.GetOwner() == "": #no
 							if canAfford(currentPlayer, currentTile.GetBuyValue()):#can afford the property
@@ -197,7 +198,7 @@ class Rules():
 										while currentPlayer.GetCash() < currentTile.GetRent() and bankrupt == False:#while the player doesnt have enough money and is not bankrupt
 											sellForCash(currentPlayer, api)
 											bankrupt = api.isBankrupt(currentPlayer, currentTile.GetRent())
-										if bankrupt = True:# if bankrupt give all properties and cash to bankrupting player
+										if bankrupt == True:# if bankrupt give all properties and cash to bankrupting player
 											currentTile.GetOwner().GetOwnedPropertys().append(currentPlayer.GetOwnedPropertys())
 											api.giveCash(currentTile.GetOwner(), currentPlayer.GetCash())
 											api.deductCash(currentPlayer, currentPlayer.GetCash())
@@ -209,20 +210,20 @@ class Rules():
 										while currentPlayer.GetCash() < (currentTile.GetRent()  * roll) and bankrupt == False:#while the player doesnt have enough money and is not bankrupt
 											sellForCash(currentPlayer, api)
 											bankrupt = api.isBankrupt(currentPlayer, currentTile.GetRent() * roll)
-										if bankrupt = True:# if bankrupt give all properties and cash to bankrupting player
+										if bankrupt == True:# if bankrupt give all properties and cash to bankrupting player
 											currentTile.GetOwner().GetOwnedPropertys().append(currentPlayer.GetOwnedPropertys())
 											api.giveCash(currentTile.GetOwner(), currentPlayer.GetCash())
 											api.deductCash(currentPlayer, currentPlayer.GetCash())
 								
 					#the tile is a card tile			
-					elif currentTile.GetType() in {"chance", "chest"}:
+					elif currentTile.GetType() in ["chance", "chest"]:
 						drawCard(currentTile.GetType(), currentPlayer, api)
 						
 					#tile is a tax tile	
 					elif currentTile.GetType() == "tax":
 						api.deductCash(currentPlayer, currentTile.GetTax())
 					
-					elif currentTile.GetType() in {"free", "jail"}:
+					elif currentTile.GetType() in ["free", "jail"]:
 						pass
 					elif currentTile.GetType() == "toJail":
 						api.sendToJail(currentPlayer)
@@ -234,11 +235,13 @@ class Rules():
 							while buyingHouses[0]:
 								api.improveProperty(currentPlayer, buyingHouses[1])
 								buyingHouses = isBuyingHouses(currentPlayer)
-							
-		
+					
+					gui.update(self.players)
+					time.sleep(1)
+					currentPlayer = self.players[nextPlayer(currentPlayer)]
 if __name__ == "__main__":
 	game = Rules()
 	visuals = MonopolyGUI()
 	visuals.load(game.getBoard().GetDimentions(), game.getTiles())
 	api = API(game.getTiles(), game.getBoard())
-	
+	game.runGame(api, visuals)
