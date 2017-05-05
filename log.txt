@@ -1,0 +1,879 @@
+player 1 moves from GO to Chance
+player 1 draws a chance
+player 1's card is:  'Speeding fine £15'
+player 2 moves from GO to Kings Cross Station
+player 2 buys Kings Cross Station
+player 3 moves from GO to Community Chest
+player 3 draws a chest
+player 3's card is:  'Pay a £10 fine'
+player 0 moves from GO to Chance
+player 0 draws a chance
+player 0's card is:  'Go to Jail'
+player 1 moves from Chance to Northumberland
+player 1 buys Northumberland
+player 2 moves from Kings Cross Station to Chance
+player 2 draws a chance
+player 2's card is:  'Your building loan matures. Receive £150'
+player 3 moves from Community Chest to Pall Mall
+player 3 buys Pall Mall
+player 0 has 2 left in jail
+player 0 pays bail
+player 1 moves from Northumberland to Bow Street
+player 1 buys Bow Street
+player 2 moves from Chance to Marylebone Station
+player 2 buys Marylebone Station
+player 3 moves from Pall Mall to Community Chest
+player 3 draws a chest
+player 3's card is:  'Receive interest on 7% preference shares: £25'
+player 0 moves from Jail to Whitehall
+player 0 buys Whitehall
+player 1 moves from Bow Street to Free Parking
+player 2 moves from Marylebone Station to Vine Street
+player 2 buys Vine Street
+player 3 moves from Community Chest to Trafalgar Square
+player 3 buys Trafalgar Square
+player 0 moves from Whitehall to Strand
+player 0 buys Strand
+player 1 moves from Free Parking to Water Works
+player 1 buys Water Works
+player 2 moves from Vine Street to Strand
+player 2 pays rent of 18 to player 0
+player 3 moves from Trafalgar Square to Water Works
+player 3 pays rent of 16 to player 1
+player 0 moves from Strand to Leicester Square
+player 0 buys Leicester Square
+player 1 moves from Water Works to Bond Street
+player 1 buys Bond Street
+player 2 moves from Strand to Water Works
+player 2 pays rent of 28 to player 1
+player 3 moves from Water Works to Oxford Street
+player 3 buys Oxford Street
+player 0 moves from Leicester Square to Go To Jail
+player 0 is sent to jail 
+player 1 moves from Bond Street to GO
+player1collects £200 for passing GO
+player 2 moves from Water Works to Go To Jail
+player 2 is sent to jail 
+player 3 moves from Oxford Street to Chance
+player 3 draws a chance
+player 3's card is:  'Take a trip to Marylebone Station'
+player 0 has 2 left in jail
+player 0 pays bail
+player 1 moves from GO to The Angel Islington
+player 1 buys The Angel Islington
+player 2 has 2 left in jail
+player 2 pays bail
+player 3 moves from Marylebone Station to Marlborough Street
+player 3 buys Marlborough Street
+player 0 moves from Jail to Marlborough Street
+player 0 pays rent of 14 to player 3
+player 1 moves from The Angel Islington to Electric Company
+player 1 buys Electric Company
+player 2 moves from Jail to Free Parking
+player 3 moves from Marlborough Street to Trafalgar Square
+player 0 moves from Marlborough Street to Water Works
+player 0 pays rent of 100 to player 1
+player 1 moves from Electric Company to Vine Street
+player 1 pays rent of 16 to player 2
+player 2 moves from Free Parking to Fleet Street
+player 2 buys Fleet Street
+player 3 moves from Trafalgar Square to Piccadilly
+player 3 buys Piccadilly
+player 0 moves from Water Works to Bond Street
+player 0 pays rent of 28 to player 1
+player 1 moves from Vine Street to Fenchurch St Station
+player 1 buys Fenchurch St Station
+player 2 moves from Fleet Street to Water Works
+player 2 pays rent of 50 to player 1
+player 3 moves from Piccadilly to Regent Street
+player 0 moves from Bond Street to Chance
+player 0 draws a chance
+player 0's card is:  'Make general repairs on all of your houses. For each house pay £25. For each hotel pay £100'
+player 1 moves from Fenchurch St Station to Bond Street
+player 2 moves from Water Works to Bond Street
+player 2 pays rent of 28 to player 1
+player 3 moves from Regent Street to GO
+player3collects £200 for passing GO
+player 0 moves from Chance to Income Tax
+player0collects £200 for passing GO
+player 0 pays tax: 200
+player 1 moves from Bond Street to Mayfair
+player 1 buys Mayfair
+player 2 moves from Bond Street to Mayfair
+player 2 pays rent of 50 to player 1
+player 3 moves from GO to Euston Road
+player 3 buys Euston Road
+player 0 moves from Income Tax to Euston Road
+player 0 pays rent of 6 to player 3
+player 1 moves from Mayfair to Chance
+player1collects £200 for passing GO
+player 1 draws a chance
+player 1's card is:  '"Drunk in charge" fine £20'
+player 2 moves from Mayfair to Income Tax
+player2collects £200 for passing GO
+player 2 pays tax: 200
+player 3 moves from Euston Road to Bow Street
+player 3 pays rent of 14 to player 1
+player 0 moves from Euston Road to Marlborough Street
+player 0 pays rent of 14 to player 3
+player 1 moves from Chance to Northumberland
+player 2 moves from Income Tax to Whitehall
+player 2 pays rent of 10 to player 0
+player 3 moves from Bow Street to Marlborough Street
+player 0 moves from Marlborough Street to Fenchurch St Station
+player 0 pays rent of 25 to player 1
+player 1 moves from Northumberland to Vine Street
+player 1 pays rent of 16 to player 2
+player 2 moves from Whitehall to Vine Street
+player 3 moves from Marlborough Street to Leicester Square
+player 3 pays rent of 22 to player 0
+player 0 moves from Fenchurch St Station to Community Chest
+player 0 draws a chest
+player 0's card is:  'Get out of jail free'
+player 1 moves from Vine Street to Coventry Street
+player 1 buys Coventry Street
+player 2 moves from Vine Street to Fenchurch St Station
+player 2 pays rent of 25 to player 1
+player 3 moves from Leicester Square to Oxford Street
+player 0 moves from Community Chest to Old Kent Road
+player0collects £200 for passing GO
+player 0 buys Old Kent Road
+player 1 moves from Coventry Street to Community Chest
+player 1 draws a chest
+player 1's card is:  'Bank error in your favour gain £200'
+player 2 moves from Fenchurch St Station to Go To Jail
+player 2 is sent to jail 
+player 3 moves from Oxford Street to Super Tax
+player 3 pays tax: 100
+player 0 moves from Old Kent Road to Income Tax
+player 0 pays tax: 200
+player 1 moves from Community Chest to Super Tax
+player 1 pays tax: 100
+player 2 has 2 left in jail
+player 2 pays bail
+player 3 moves from Super Tax to Community Chest
+player3collects £200 for passing GO
+player 3 draws a chest
+player 3's card is:  'Pay hospital lose £100'
+player 0 moves from Income Tax to Jail
+player 1 moves from Super Tax to Income Tax
+player1collects £200 for passing GO
+player 1 pays tax: 200
+player 2 moves from Jail to Whitehall
+player 2 pays rent of 10 to player 0
+player 3 moves from Community Chest to Chance
+player 3 draws a chance
+player 3's card is:  'Get out of jail free'
+player 0 moves from Jail to Northumberland
+player 0 pays rent of 12 to player 1
+player 1 moves from Income Tax to Electric Company
+player 2 moves from Whitehall to Vine Street
+player 3 moves from Chance to Electric Company
+player 3 pays rent of 50 to player 1
+player 0 moves from Northumberland to Vine Street
+player 0 pays rent of 16 to player 2
+player 1 moves from Electric Company to Marlborough Street
+player 1 pays rent of 14 to player 3
+player 2 moves from Vine Street to Coventry Street
+player 2 pays rent of 22 to player 1
+player 3 moves from Electric Company to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Vine Street to Fenchurch St Station
+player 0 pays rent of 25 to player 1
+player 1 moves from Marlborough Street to Water Works
+player 2 moves from Coventry Street to Community Chest
+player 2 draws a chest
+player 2's card is:  'Pay your insurance premium lose £50'
+player 3 moves from Vine Street to Water Works
+player 3 pays rent of 90 to player 1
+player 0 moves from Fenchurch St Station to Piccadilly
+player 0 pays rent of 22 to player 3
+player 1 moves from Water Works to Bond Street
+player 2 moves from Community Chest to Chance
+player 2 draws a chance
+player 2's card is:  'You have won a crossword competition. Collect £100'
+player 3 moves from Water Works to Bond Street
+player 3 pays rent of 28 to player 1
+player 0 moves from Piccadilly to Oxford Street
+player 0 pays rent of 26 to player 3
+player 1 moves from Bond Street to Old Kent Road
+player1collects £200 for passing GO
+player 1 pays rent of 2 to player 0
+player 2 moves from Chance to Whitechapel
+player2collects £200 for passing GO
+player 2 buys Whitechapel
+player 3 moves from Bond Street to Chance
+player 3 draws a chance
+player 3's card is:  'Go back three spaces'
+player 0 moves from Oxford Street to Old Kent Road
+player0collects £200 for passing GO
+player 1 moves from Old Kent Road to The Angel Islington
+player 2 moves from Whitechapel to Euston Road
+player 2 pays rent of 6 to player 3
+player 3 moves from Community Chest to Mayfair
+player 3 pays rent of 50 to player 1
+player 0 moves from Old Kent Road to The Angel Islington
+player 0 pays rent of 6 to player 1
+player 1 moves from The Angel Islington to Electric Company
+player 2 moves from Euston Road to Community Chest
+player 2 draws a chest
+player 2's card is:  'Income tax refund. Collect £20'
+player 3 moves from Mayfair to Whitechapel
+player3collects £200 for passing GO
+player 3 pays rent of 4 to player 2
+player 0 moves from The Angel Islington to Jail
+player 1 moves from Electric Company to Strand
+player 1 pays rent of 18 to player 0
+player 2 moves from Community Chest to Free Parking
+player 3 moves from Whitechapel to Euston Road
+player 0 moves from Jail to Northumberland
+player 0 pays rent of 12 to player 1
+player 1 moves from Strand to Go To Jail
+player 1 is sent to jail 
+player 2 moves from Free Parking to Water Works
+player 3 moves from Euston Road to Electric Company
+player 0 moves from Northumberland to Marlborough Street
+player 0 pays rent of 14 to player 3
+player 1 has 2 left in jail
+player 1 pays bail
+player 2 moves from Water Works to Bond Street
+player 2 pays rent of 28 to player 1
+player 3 moves from Electric Company to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Marlborough Street to Trafalgar Square
+player 0 pays rent of 20 to player 3
+player 1 moves from Jail to Marlborough Street
+player 1 pays rent of 14 to player 3
+player 2 moves from Bond Street to GO
+player2collects £200 for passing GO
+player 3 moves from Vine Street to Leicester Square
+player 3 pays rent of 22 to player 0
+player 0 moves from Trafalgar Square to Regent Street
+player 0 buys Regent Street
+player 1 moves from Marlborough Street to Chance
+player 1 draws a chance
+player 1's card is:  'Pay school fees of £150'
+player 2 moves from GO to Kings Cross Station
+player 3 moves from Leicester Square to Community Chest
+player 3 draws a chest
+player 3's card is:  'Annuity matures gain £100'
+player 0 moves from Regent Street to Bond Street
+player 0 pays rent of 28 to player 1
+player 1 moves from Chance to Water Works
+player 2 moves from Kings Cross Station to Pall Mall
+player 2 pays rent of 10 to player 3
+player 3 moves from Community Chest to Mayfair
+player 3 pays rent of 50 to player 1
+player 0 moves from Bond Street to Mayfair
+player 0 pays rent of 50 to player 1
+player 1 moves from Water Works to Regent Street
+player 1 pays rent of 26 to player 0
+player 2 moves from Pall Mall to Community Chest
+player 2 draws a chest
+player 2's card is:  'It is your birthday. Collect £10 from each player'
+player 3 moves from Mayfair to Whitechapel
+player3collects £200 for passing GO
+player 3 pays rent of 4 to player 2
+player 0 moves from Mayfair to Chance
+player0collects £200 for passing GO
+player 0 draws a chance
+player 0's card is:  'Advance to Mayfair'
+player 0 pays rent of 50 to player 1
+player 1 moves from Regent Street to Park Lane
+player 1 buys Park Lane
+player 1 improves Mayfair
+player 2 moves from Community Chest to Fleet Street
+player 3 moves from Whitechapel to Pentonville Road
+player 3 buys Pentonville Road
+player 0 moves from Mayfair to Pentonville Road
+player0collects £200 for passing GO
+player 0 pays rent of 8 to player 3
+player 1 moves from Park Lane to The Angel Islington
+player1collects £200 for passing GO
+player 1 improves Park Lane
+player 2 moves from Fleet Street to Piccadilly
+player 2 pays rent of 22 to player 3
+player 3 moves from Pentonville Road to Whitehall
+player 3 pays rent of 10 to player 0
+player 0 moves from Pentonville Road to Vine Street
+player 0 pays rent of 16 to player 2
+player 1 moves from The Angel Islington to Pentonville Road
+player 1 pays rent of 8 to player 3
+player 2 moves from Piccadilly to Chance
+player 2 draws a chance
+player 2's card is:  'You are assessed for street repairs: £40 per house, £115 per hotel'
+player 3 moves from Whitehall to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Vine Street to Fenchurch St Station
+player 0 pays rent of 25 to player 1
+player 1 moves from Pentonville Road to Marylebone Station
+player 1 pays rent of 75 to player 2
+player 2 moves from Chance to Old Kent Road
+player2collects £200 for passing GO
+player 2 pays rent of 2 to player 0
+player 3 moves from Vine Street to Coventry Street
+player 3 pays rent of 22 to player 1
+player 0 moves from Fenchurch St Station to Water Works
+player 0 pays rent of 30 to player 1
+player 1 moves from Marylebone Station to Chance
+player 1 draws a chance
+player 1's card is:  'Advance to Go'
+player 1 improves Mayfair
+player 2 moves from Old Kent Road to Pall Mall
+player 2 pays rent of 10 to player 3
+player 3 moves from Coventry Street to Chance
+player 3 draws a chance
+player 3's card is:  'Advance to Trafalgar Square.'
+player 0 moves from Water Works to Oxford Street
+player 0 pays rent of 26 to player 3
+player 1 moves from GO to Income Tax
+player 1 pays tax: 200
+player 2 moves from Pall Mall to Bow Street
+player 2 pays rent of 14 to player 1
+player 3 moves from Trafalgar Square to Go To Jail
+player 3 is sent to jail 
+player 0 moves from Oxford Street to Park Lane
+player 0 pays rent of 175 to player 1
+player 1 moves from Income Tax to Whitehall
+player 1 pays rent of 10 to player 0
+player 2 moves from Bow Street to Chance
+player 2 draws a chance
+player 2's card is:  'Advance to Pall Mall'
+player 3 has 2 left in jail
+player 0 moves from Park Lane to Community Chest
+player0collects £200 for passing GO
+player 0 draws a chest
+player 0's card is:  'Advance to Old Kent Road'
+player 1 moves from Whitehall to Marlborough Street
+player 2 moves from Pall Mall to Strand
+player 2 pays rent of 18 to player 0
+player 3 has 1 left in jail
+player 0 moves from Old Kent Road to Jail
+player 1 moves from Marlborough Street to Free Parking
+player 2 moves from Strand to Piccadilly
+player 3 has 0 left in jail
+player 0 moves from Jail to Bow Street
+player 0 pays rent of 14 to player 1
+player 1 moves from Free Parking to Trafalgar Square
+player 1 pays rent of 20 to player 3
+player 2 moves from Piccadilly to Chance
+player 2 draws a chance
+player 2's card is:  'Bank pays you dividend of £50'
+player 3 moves from Jail to Whitehall
+player 3 pays rent of 10 to player 0
+player 0 moves from Bow Street to Leicester Square
+player 1 moves from Trafalgar Square to Go To Jail
+player 1 is sent to jail 
+player 2 moves from Chance to Community Chest
+player2collects £200 for passing GO
+player 2 draws a chest
+player 2's card is:  'Doctor's fee lose £50'
+player 3 moves from Whitehall to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Leicester Square to Bond Street
+player 1 has 2 left in jail
+player 1 pays bail
+player 2 moves from Community Chest to Kings Cross Station
+player 3 moves from Vine Street to Leicester Square
+player 3 pays rent of 22 to player 0
+player 0 moves from Bond Street to Community Chest
+player0collects £200 for passing GO
+player 0 draws a chest
+player 0's card is:  'You inherit £100'
+player 1 moves from Jail to Vine Street
+player 1 pays rent of 16 to player 2
+player 2 moves from Kings Cross Station to Jail
+player 3 moves from Leicester Square to Regent Street
+player 3 pays rent of 26 to player 0
+player 0 moves from Community Chest to The Angel Islington
+player 0 pays rent of 6 to player 1
+player 1 moves from Vine Street to Trafalgar Square
+player 1 pays rent of 20 to player 3
+player 2 moves from Jail to Northumberland
+player 2 pays rent of 12 to player 1
+player 3 moves from Regent Street to Park Lane
+player 3 pays rent of 175 to player 1
+player 0 moves from The Angel Islington to Whitehall
+player 1 moves from Trafalgar Square to Coventry Street
+player 1 improves Park Lane
+player 2 moves from Northumberland to Fleet Street
+player 3 moves from Park Lane to The Angel Islington
+player3collects £200 for passing GO
+player 3 pays rent of 6 to player 1
+player 0 moves from Whitehall to Marylebone Station
+player 0 pays rent of 75 to player 2
+player 1 moves from Coventry Street to Oxford Street
+player 1 pays rent of 26 to player 3
+player 2 moves from Fleet Street to Piccadilly
+player 2 pays rent of 22 to player 3
+player 3 moves from The Angel Islington to Electric Company
+player 3 pays rent of 60 to player 1
+player 0 moves from Marylebone Station to Strand
+player 1 moves from Oxford Street to Community Chest
+player1collects £200 for passing GO
+player 1 draws a chest
+player 1's card is:  'From sale of stock you get £50'
+player 1 improves Mayfair
+player 2 moves from Piccadilly to Chance
+player 2 draws a chance
+player 2's card is:  'Speeding fine £15'
+player 3 moves from Electric Company to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Strand to Piccadilly
+player 0 pays rent of 22 to player 3
+player 1 moves from Community Chest to Jail
+player 2 moves from Chance to GO
+player2collects £200 for passing GO
+player 3 moves from Vine Street to Fleet Street
+player 3 pays rent of 18 to player 2
+player 0 moves from Piccadilly to Chance
+player 0 draws a chance
+player 0's card is:  'Go to Jail'
+player 1 moves from Jail to Northumberland
+player 2 moves from GO to The Angel Islington
+player 2 pays rent of 6 to player 1
+player 3 moves from Fleet Street to Piccadilly
+player 0 has 2 left in jail
+player 1 moves from Northumberland to Community Chest
+player 1 draws a chest
+player 1's card is:  'You have won second prize in a beauty contest. Collect £10'
+player 2 moves from The Angel Islington to Euston Road
+player 2 pays rent of 6 to player 3
+player 3 moves from Piccadilly to Regent Street
+player 0 has 1 left in jail
+player 1 moves from Community Chest to Trafalgar Square
+player 1 pays rent of 20 to player 3
+player 2 moves from Euston Road to Pall Mall
+player 2 pays rent of 10 to player 3
+player 3 moves from Regent Street to Liverpool Street Station
+player 0 has 0 left in jail
+player 0 gets out of jail with a roll
+player 1 moves from Trafalgar Square to Coventry Street
+player 2 moves from Pall Mall to Northumberland
+player 2 pays rent of 12 to player 1
+player 3 moves from Liverpool Street Station to Old Kent Road
+player3collects £200 for passing GO
+player 3 pays rent of 2 to player 0
+player 0 moves from Jail to Vine Street
+player 0 pays rent of 16 to player 2
+player 1 moves from Coventry Street to Bond Street
+player 2 moves from Northumberland to Marlborough Street
+player 2 pays rent of 14 to player 3
+player 3 moves from Old Kent Road to The Angel Islington
+player 3 pays rent of 6 to player 1
+player 0 moves from Vine Street to Trafalgar Square
+player 0 pays rent of 20 to player 3
+player 1 moves from Bond Street to GO
+player1collects £200 for passing GO
+player 1 improves Park Lane
+player 2 moves from Marlborough Street to Strand
+player 2 pays rent of 18 to player 0
+player 3 moves from The Angel Islington to Electric Company
+player 3 pays rent of 60 to player 1
+player 0 moves from Trafalgar Square to Go To Jail
+player 0 is sent to jail 
+player 1 moves from GO to The Angel Islington
+player 1 improves Mayfair
+player 2 moves from Strand to Trafalgar Square
+player 2 pays rent of 20 to player 3
+player 3 moves from Electric Company to Marlborough Street
+player 0 has 2 left in jail
+player 1 moves from The Angel Islington to Whitehall
+player 2 moves from Trafalgar Square to Go To Jail
+player 2 is sent to jail 
+player 3 moves from Marlborough Street to Free Parking
+player 0 has 1 left in jail
+player 1 moves from Whitehall to Vine Street
+player 2 has 2 left in jail
+player 3 moves from Free Parking to Leicester Square
+player 0 has 0 left in jail
+player 1 moves from Vine Street to Coventry Street
+player 2 has 1 left in jail
+player 3 moves from Leicester Square to Regent Street
+player 3 pays rent of 26 to player 0
+player 0 moves from Jail to Vine Street
+player 1 moves from Coventry Street to Regent Street
+player 1 pays rent of 26 to player 0
+player 2 has 0 left in jail
+player 3 moves from Regent Street to Super Tax
+player 3 pays tax: 100
+player 0 moves from Vine Street to Fenchurch St Station
+player 0 pays rent of 25 to player 1
+player 1 moves from Regent Street to GO
+player1collects £200 for passing GO
+player 1 improves Park Lane
+player 2 moves from Jail to Bow Street
+player 2 pays rent of 14 to player 1
+player 3 moves from Super Tax to Old Kent Road
+player3collects £200 for passing GO
+player 3 pays rent of 2 to player 0
+player 0 moves from Fenchurch St Station to Water Works
+player 0 pays rent of 30 to player 1
+player 1 moves from GO to The Angel Islington
+player 2 moves from Bow Street to Strand
+player 2 pays rent of 18 to player 0
+player 3 moves from Old Kent Road to Jail
+player 0 moves from Water Works to Oxford Street
+player 0 pays rent of 26 to player 3
+player 1 moves from The Angel Islington to Northumberland
+player 2 moves from Strand to Coventry Street
+player 2 pays rent of 22 to player 1
+player 3 moves from Jail to Whitehall
+player 3 pays rent of 10 to player 0
+player 0 moves from Oxford Street to Liverpool Street Station
+player 1 moves from Northumberland to Free Parking
+player 2 moves from Coventry Street to Bond Street
+player 2 pays rent of 28 to player 1
+player 3 moves from Whitehall to Vine Street
+player 3 pays rent of 16 to player 2
+player 0 moves from Liverpool Street Station to Community Chest
+player0collects £200 for passing GO
+player 0 draws a chest
+player 0's card is:  'Go to Jail'
+player 1 moves from Free Parking to Water Works
+player 2 moves from Bond Street to Park Lane
+player 2 pays rent of 1300 to player 1
+player 3 moves from Vine Street to Fleet Street
+player 3 pays rent of 18 to player 2
+player 0 has 2 left in jail
+player 1 moves from Water Works to Park Lane
+player 1 improves Mayfair
+player 1 improves Park Lane
+player 2 moves from Park Lane to Income Tax
+player2collects £200 for passing GO
+player 2 pays tax: 200
+player 3 moves from Fleet Street to Oxford Street
+player 0 has 1 left in jail
+player 1 moves from Park Lane to Kings Cross Station
+player1collects £200 for passing GO
+player 1 pays rent of 75 to player 2
+player 2 moves from Income Tax to The Angel Islington
+player 2 pays rent of 6 to player 1
+player 3 moves from Oxford Street to Mayfair
+player 3 morgages Euston Road
+player 3 morgages Pentonville Road
+player 3 morgages Pall Mall
+player 3 morgages Marlborough Street
+player 3 morgages Trafalgar Square
+player 3 morgages Piccadilly
+player 3 morgages Oxford Street
+player 3 goes bankrupt to 1
+player 0 has 0 left in jail
+player 1 moves from Kings Cross Station to Electric Company
+player 1 improves The Angel Islington
+player 1 improves Euston Road
+player 1 improves Pentonville Road
+player 1 improves The Angel Islington
+player 1 improves Euston Road
+player 1 improves Pentonville Road
+player 1 improves The Angel Islington
+player 1 improves Euston Road
+player 1 improves Pentonville Road
+player 1 improves The Angel Islington
+player 1 improves Euston Road
+player 1 improves Pentonville Road
+player 1 improves The Angel Islington
+player 1 improves Euston Road
+player 1 improves Pentonville Road
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Oxford Street
+player 1 unmorgages Marlborough Street
+player 1 unmorgages Piccadilly
+player 1 unmorgages Euston Road
+player 1 unmorgages Pentonville Road
+player 2 moves from The Angel Islington to Electric Company
+player 2 pays rent of 60 to player 1
+player 0 moves from Jail to Whitehall
+player 1 moves from Electric Company to Strand
+player 1 pays rent of 18 to player 0
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Oxford Street
+player 1 unmorgages Marlborough Street
+player 1 unmorgages Piccadilly
+player 1 unmorgages Euston Road
+player 2 moves from Electric Company to Marlborough Street
+player 0 moves from Whitehall to Fleet Street
+player 0 pays rent of 18 to player 2
+player 1 moves from Strand to Go To Jail
+player 1 is sent to jail 
+player 2 moves from Marlborough Street to Trafalgar Square
+player 0 moves from Fleet Street to Coventry Street
+player 1 has 2 left in jail
+player 1 gets out of jail with a roll
+player 2 moves from Trafalgar Square to Piccadilly
+player 0 moves from Coventry Street to Bond Street
+player 1 has 1 left in jail
+player 2 moves from Piccadilly to Community Chest
+player 2 draws a chest
+player 2's card is:  'Advance to Go'
+player 0 moves from Bond Street to Super Tax
+player 0 pays tax: 100
+player 1 has 0 left in jail
+player 2 moves from GO to Jail
+player 0 moves from Super Tax to Community Chest
+player0collects £200 for passing GO
+player 0 draws a chest
+player 0's card is:  'Pay a £10 fine'
+player 1 moves from Jail to Whitehall
+player 1 pays rent of 10 to player 0
+player 2 moves from Jail to Community Chest
+player 2 draws a chest
+player 2's card is:  'Receive interest on 7% preference shares: £25'
+player 0 moves from Community Chest to Chance
+player 0 draws a chance
+player 0's card is:  'Your building loan matures. Receive £150'
+player 1 moves from Whitehall to Chance
+player 1 draws a chance
+player 1's card is:  'Take a trip to Marylebone Station'
+player 1 pays rent of 75 to player 2
+player 2 moves from Community Chest to Fleet Street
+player 0 moves from Chance to Northumberland
+player 0 pays rent of 12 to player 1
+player 1 moves from Marylebone Station to Vine Street
+player 1 pays rent of 16 to player 2
+player 2 moves from Fleet Street to Regent Street
+player 2 pays rent of 26 to player 0
+player 0 moves from Northumberland to Strand
+player 1 moves from Vine Street to Trafalgar Square
+player 2 moves from Regent Street to Mayfair
+player 2 morgages Whitechapel
+player 2 morgages Kings Cross Station
+player 2 morgages Marylebone Station
+player 2 morgages Vine Street
+player 2 morgages Fleet Street
+player 2 goes bankrupt to 1
+player 0 moves from Strand to Piccadilly
+player 1 moves from Trafalgar Square to Coventry Street
+player 1 improves Bow Street
+player 1 improves Marlborough Street
+player 1 improves Vine Street
+player 1 improves Bow Street
+player 1 improves Marlborough Street
+player 1 improves Vine Street
+player 1 improves Bow Street
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Marlborough Street
+player 1 unmorgages Whitechapel
+player 0 moves from Piccadilly to Chance
+player 0 draws a chance
+player 0's card is:  'Make general repairs on all of your houses. For each house pay £25. For each hotel pay £100'
+player 1 moves from Coventry Street to Liverpool Street Station
+player 0 moves from Chance to Whitechapel
+player0collects £200 for passing GO
+player 1 moves from Liverpool Street Station to Park Lane
+player 0 moves from Whitechapel to Euston Road
+player 1 moves from Park Lane to Community Chest
+player1collects £200 for passing GO
+player 1 draws a chest
+player 1's card is:  'Bank error in your favour gain £200'
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Oxford Street
+player 1 unmorgages Whitechapel
+player 0 moves from Euston Road to Marylebone Station
+player 1 moves from Community Chest to Chance
+player 1 draws a chance
+player 1's card is:  '"Drunk in charge" fine £20'
+player 0 moves from Marylebone Station to Trafalgar Square
+player 1 moves from Chance to Pentonville Road
+player 0 moves from Trafalgar Square to Go To Jail
+player 0 is sent to jail 
+player 1 moves from Pentonville Road to Pall Mall
+player 0 has 2 left in jail
+player 1 moves from Pall Mall to Community Chest
+player 1 draws a chest
+player 1's card is:  'Pay hospital lose £100'
+player 0 has 1 left in jail
+player 1 moves from Community Chest to Trafalgar Square
+player 0 has 0 left in jail
+player 1 moves from Trafalgar Square to Water Works
+player 0 moves from Jail to Marlborough Street
+player 1 moves from Water Works to Bond Street
+player 0 moves from Marlborough Street to Strand
+player 1 moves from Bond Street to Park Lane
+player 0 moves from Strand to Coventry Street
+player 0 pays rent of 22 to player 1
+player 1 moves from Park Lane to Whitechapel
+player1collects £200 for passing GO
+player 1 buys Whitechapel
+player 1 unmorgages Whitechapel
+player 0 moves from Coventry Street to Community Chest
+player 0 draws a chest
+player 0's card is:  'Pay your insurance premium lose £50'
+player 1 moves from Whitechapel to Pentonville Road
+player 0 moves from Community Chest to Park Lane
+player 0 morgages Old Kent Road
+player 0 morgages Whitehall
+player 0 pays rent of 1500 to player 1
+player 1 moves from Pentonville Road to Whitehall
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Oxford Street
+player 1 unmorgages Marlborough Street
+player 1 unmorgages Piccadilly
+player 1 unmorgages Euston Road
+player 1 unmorgages Pentonville Road
+player 1 unmorgages Kings Cross Station
+player 1 unmorgages Marylebone Station
+player 1 unmorgages Vine Street
+player 1 unmorgages Fleet Street
+player 1 unmorgages Whitechapel
+player 1 unmorgages Whitechapel
+player 0 moves from Park Lane to Whitechapel
+player0collects £200 for passing GO
+player 1 moves from Whitehall to Free Parking
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 1 unmorgages Whitechapel
+player 0 moves from Whitechapel to Chance
+player 0 draws a chance
+player 0's card is:  'You have won a crossword competition. Collect £100'
+player 1 moves from Free Parking to Go To Jail
+player 1 is sent to jail 
+player 0 moves from Chance to Electric Company
+player 1 has 2 left in jail
+player 0 moves from Electric Company to Bow Street
+player 1 has 1 left in jail
+player 0 moves from Bow Street to Chance
+player 0 draws a chance
+player 0's card is:  'Go back three spaces'
+player 1 has 0 left in jail
+player 1 gets out of jail with a roll
+player 0 moves from Vine Street to Coventry Street
+player 0 pays rent of 22 to player 1
+player 1 moves from Jail to Community Chest
+player 1 draws a chest
+player 1's card is:  'Income tax refund. Collect £20'
+player 1 unmorgages Whitechapel
+player 0 moves from Coventry Street to Go To Jail
+player 0 is sent to jail 
+player 1 moves from Community Chest to Fleet Street
+player 0 has 2 left in jail
+player 1 moves from Fleet Street to Regent Street
+player 0 has 1 left in jail
+player 1 moves from Regent Street to Bond Street
+player 0 has 0 left in jail
+player 1 moves from Bond Street to Income Tax
+player1collects £200 for passing GO
+player 1 pays tax: 200
+player 0 moves from Jail to Free Parking
+player 1 moves from Income Tax to Jail
+player 0 moves from Free Parking to Trafalgar Square
+player 1 moves from Jail to Vine Street
+player 0 moves from Trafalgar Square to Regent Street
+player 1 moves from Vine Street to Fleet Street
+player 0 moves from Regent Street to Super Tax
+player 0 pays tax: 100
+player 1 moves from Fleet Street to Go To Jail
+player 1 is sent to jail 
+player 0 moves from Super Tax to Kings Cross Station
+player0collects £200 for passing GO
+player 1 has 2 left in jail
+player 0 moves from Kings Cross Station to Electric Company
+player 1 has 1 left in jail
+player 1 gets out of jail with a roll
+player 0 moves from Electric Company to Vine Street
+player 1 has 0 left in jail
+player 1 gets out of jail with a roll
+player 0 moves from Vine Street to Fenchurch St Station
+player 0 pays rent of 175 to player 1
+player 1 moves from Jail to Whitehall
+player 1 unmorgages Pall Mall
+player 1 unmorgages Marlborough Street
+player 0 moves from Fenchurch St Station to Piccadilly
+player 1 moves from Whitehall to Free Parking
+player 0 moves from Piccadilly to Super Tax
+player 0 pays tax: 100
+player 1 moves from Free Parking to Piccadilly
+player 0 moves from Super Tax to Old Kent Road
+player0collects £200 for passing GO
+player 1 moves from Piccadilly to Liverpool Street Station
+player 0 moves from Old Kent Road to Income Tax
+player 0 pays tax: 200
+player 1 moves from Liverpool Street Station to Park Lane
+player 0 moves from Income Tax to Pentonville Road
+player 1 moves from Park Lane to Old Kent Road
+player1collects £200 for passing GO
+player 1 unmorgages Pall Mall
+player 1 unmorgages Trafalgar Square
+player 0 moves from Pentonville Road to Whitehall
+player 1 moves from Old Kent Road to Euston Road
+player 0 moves from Whitehall to Vine Street
+player 1 moves from Euston Road to Marylebone Station
+player 0 moves from Vine Street to Chance
+player 0 draws a chance
+player 0's card is:  'Pay school fees of £150'
+player 1 moves from Marylebone Station to Fenchurch St Station
+player 0 moves from Chance to Leicester Square
+player 1 moves from Fenchurch St Station to Regent Street
+player 1 pays rent of 26 to player 0
+player 0 moves from Leicester Square to Oxford Street
+player 1 moves from Jail to Free Parking
+player 0 moves from Oxford Street to Chance
+player 0 draws a chance
+player 0's card is:  'Advance to Mayfair'
+player 1 has 2 left in jail
+player 1 gets out of jail with a roll
+player 0 moves from Mayfair to The Angel Islington
+player0collects £200 for passing GO
+player 1 has 1 left in jail
+player 0 moves from The Angel Islington to Marylebone Station
+player 1 has 0 left in jail
+player 1 gets out of jail with a roll
+player 0 moves from Marylebone Station to Chance
+player 0 draws a chance
+player 0's card is:  'You are assessed for street repairs: £40 per house, £115 per hotel'
+player 1 moves from Free Parking to Fleet Street
+player 0 moves from Chance to Coventry Street
+player 0 pays rent of 22 to player 1
+player 1 moves from Fleet Street to Regent Street
+player 1 pays rent of 26 to player 0
+player 0 moves from Coventry Street to Oxford Street
+player 1 moves from Regent Street to Bond Street
+player 0 moves from Oxford Street to Super Tax
+player 0 pays tax: 100
+player 1 moves from Bond Street to Super Tax
+player 1 pays tax: 100
+player 0 moves from Super Tax to Kings Cross Station
+player0collects £200 for passing GO
+player 1 moves from Super Tax to Kings Cross Station
+player1collects £200 for passing GO
+player 1 unmorgages Euston Road
+player 0 moves from Kings Cross Station to Pentonville Road
+player 1 moves from Kings Cross Station to Jail
+player 0 moves from Pentonville Road to Marylebone Station
+player 1 moves from Jail to Whitehall
+player 0 moves from Marylebone Station to Fleet Street
+player 1 moves from Whitehall to Fleet Street
+player 0 moves from Fleet Street to Piccadilly
+player 1 moves from Fleet Street to Coventry Street
+player 0 moves from Piccadilly to Chance
+player 0 draws a chance
+player 0's card is:  'Advance to Go'
+player 1 moves from Coventry Street to Go To Jail
+player 1 is sent to jail 
+player 0 moves from GO to Income Tax
+player 0 pays tax: 200
+player 1 has 2 left in jail
+player 0 moves from Income Tax to Pall Mall
+player 1 has 1 left in jail
+player 0 moves from Pall Mall to Community Chest
+player 0 draws a chest
+player 0's card is:  'Annuity matures gain £100'
+player 1 has 0 left in jail
+player 0 moves from Community Chest to Chance
+player 0 draws a chance
+player 0's card is:  'Advance to Trafalgar Square.'
+player 1 moves from Jail to Marylebone Station
+player 0 moves from Trafalgar Square to Piccadilly
+player 1 moves from Marylebone Station to Marlborough Street
+player 0 moves from Piccadilly to Park Lane
+player 0 morgages Strand
+player 0 morgages Leicester Square
+player 0 morgages Regent Street
+player 0 goes bankrupt to 1
+Total Turns: 
+432

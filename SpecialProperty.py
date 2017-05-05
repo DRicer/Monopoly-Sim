@@ -80,8 +80,6 @@ class SpecialProperty(Tile):
 		
 		
 	def SetOwner(self, new):
-		if not isinstance(new, Player):
-			raise TypeError("owner must be set to a Player")
 		
 		self.owner = new
 			

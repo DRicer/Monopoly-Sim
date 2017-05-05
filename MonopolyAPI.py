@@ -8,19 +8,27 @@ import Card
 
 class API():
 
-	def __init__(self, tiles, board):
+	def __init__(self, tiles, board, players):
+		self.players = players
 		self.tiles = tiles
 		self.board = board
 		self.cardApi = {"movePlayer" : self.movePlayer, "rollDice": self.rollDice, "sendToJail": self.sendToJail, "getOutOfJail": self.getOutOfJail, "checkIfPassGo": self.checkIfPassGo, "buyProperty": self.buyProperty,
 		"payRent" : self.payRent, "deductCash": self.deductCash, "giveCash": self.giveCash, "improveProperty": self.improveProperty, "sellHouses": self.sellHouses, "morgageProperty": self.morgageProperty,
-		"checkEvenBuild": self.checkEvenBuild, "sendTo": self.sendTo, "findNearest": self.findNearest}
+		"checkEvenBuild": self.checkEvenBuild, "sendTo": self.sendTo, "findNearest": self.findNearest, "birthdayCash" : self.birthdayCash, "makeRepairs" : self.makeRepairs}
 		
 	def movePlayer(self, player, move):
 		player.SetBoardPos(player.GetBoardPos() + move)
 		maxTile = len(self.tiles)
 		if player.GetBoardPos() >= maxTile:
 			player.SetBoardPos(player.GetBoardPos() - maxTile)
-			
+	
+	def birthdayCash(self, player, amountPerPlayer):
+		count  = 0
+		for i in range(0, len(self.players)):
+			self.players[i].LoseCash(amountPerPlayer)
+			count += 1
+		player.GainCash(amountPerPlayer * count)
+		
 	def rollDice(self, player, dice):
 		roll = dice.RollDice()
 		if dice.GetDoublesCount() == dice.GetJailonRoll():
@@ -40,13 +48,15 @@ class API():
 		player.SetJailTurns(0)
 		
 	def tryOutOfJail(self, player, dice):
-		oldDoubles = dice
+		roll = dice.RollDice()
 		if dice.GetDoublesCount() == 1:
-			player.SetJailTurns(0)
 			dice.SetDoublesCount(0)
+			return True
+		else:
+			return False
 			
 	def checkIfPassGo(self, player, oldTile):
-		if player.GetBoardPos() < oldTile:
+		if player.GetBoardPos() < oldTile.GetBoardPos():
 			return True
 		else:
 			return False
@@ -69,28 +79,36 @@ class API():
 		player.GainCash(amount)
 	
 	def improveProperty(self, player, property):
-		property.SetNumHouses(property.GetNumHouses() + 1)
-		player.LoseCash(property.GetHouseCost())
-		property.DeductEarnings(property.GetHouseCost())
+		if self.board.GetAvailableHouses() > 0:
+			property.SetNumHouses(property.GetNumHouses() + 1)
+			player.LoseCash(property.GetHouseCost())
+			property.DeductEarnings(property.GetHouseCost())
+			self.board.DecAvailableHouses()
 	
 	def sellHouses(self, player, property):
 		property.SetNumHouses(property.GetNumHouses() - 1)
-		player.GainCash(property.GetHouseCost() * board.houseSellPercent())
-		property.AddEarnings(property.GetHouseCost() * board.houseSellPercent())
+		player.GainCash(property.GetHouseCost() * self.board.GetHouseSellPercent())
+		property.AddEarnings(property.GetHouseCost() * self.board.GetHouseSellPercent())
 		
 	def morgageProperty(self, player, property):
-		property.SetIsMorgaged(true)
-		player.GainCash(property.GetBuyValue() * board.GetMorgagePercent())
+		property.SetIsMorgaged(True)
+		player.GainCash(property.GetBuyValue() * self.board.GetMorgagePercent())
+		property.AddEarnings(property.GetBuyValue() * self.board.GetMorgagePercent())
+		
+	def unMorgageProperty(self, player, property):
+		property.SetIsMorgaged(True)
+		player.LoseCash((property.GetBuyValue() * self.board.GetMorgagePercent()) * self.board.GetMorgageInterest())
+		property.AddEarnings((property.GetBuyValue() * self.board.GetMorgagePercent()) * self.board.GetMorgageInterest())
 	
 	def isBankrupt(self, player, toPay = 0):
 		bankrupt = True
-		print(player)
 		ownedPropertys = player.GetOwnedPropertys()
-		for property in  ownedPropertys:
-			if property.GetIsMorgaged() == False:
-				bankrupt = False
+		if ownedPropertys:
+			for property in ownedPropertys:
+				if property.GetIsMorgaged() == False:
+					bankrupt = False
 		if player.GetCash() - toPay >= 0:
-			bankrupt = False
+				bankrupt = False
 			
 		return bankrupt
 		
@@ -131,7 +149,7 @@ class API():
 		
 		return even		
 
-	def getNumHouses(player, group = "all"):#get the number of imporvements a player owns or in a specific group
+	def getNumHouses(self, player, group = "all"):#get the number of imporvements a player owns or in a specific group
 		properties = player.GetOwnedPropertys()
 		houses = 0
 		if group == "all":
@@ -141,15 +159,23 @@ class API():
 		else:
 			for property in properties:
 				if property.GetGroup() == group:
-					houses += property.getNumHouses()
+					houses += property.GetNumHouses()
 		
 		return houses
+	
+	def makeRepairs(self, player, perHouse, perHotel):
+		properties = player.GetOwnedPropertys()
+		for property in properties:
+			if property.GetType() == "standard":
+				if property.GetNumHouses == 5:
+					player.LoseCash(perHotel)
+				else:
+					player.LoseCash(perHouse * property.GetNumHouses())
 		
 	def getHighestRent(self, player):
 		highest = 0
-		print(player)
 		for property in self.tiles:
-			if hasattr(self.tiles[property], "GetOwner"):
+			if hasattr(self.tiles[property], "GetOwner") and not self.tiles[property].GetType() == "utility":
 				if not(self.tiles[property].GetOwner() == player):
 					if self.tiles[property].GetRent() > highest:
 						highest = self.tiles[property].GetRent()
@@ -192,14 +218,17 @@ class API():
 		return False
 		
 	def inMonopoly(self, property, player):
-		group = property.GetGroup()
-		playerProps = player.GetOwnedPropertys()
-		count = 0
-		for prop in  playerProps:
-			if prop.GetGroup() == group:
-				count += 1
-		if count == property.GetInGroup():
-			return True
+		if property.GetType() == "standard":
+			group = property.GetGroup()
+			playerProps = player.GetOwnedPropertys()
+			count = 0
+			for prop in  playerProps:
+				if prop.GetGroup() == group:
+					count += 1
+			if count == property.GetInGroup():
+				return True
+			else:
+				return False
 		else:
 			return False
 				
@@ -213,10 +242,12 @@ class API():
 	
 		params = []
 		cardActions = card.GetActions()
-		
+
 		for action in cardActions:
 			params = cardActions[action].split(",")
-			
+			if "getOutOfJailFree" in action:
+				player.AddGetOutOFJail
+				return True
 			for param in params:
 			
 				if "player" in param:
@@ -225,12 +256,15 @@ class API():
 						params[params.index(param)] = player
 						
 				elif "property" in param:
-				
-					params[params.index(param)] = findProperty(param[param.index("{") + 1:-1])
+					if not ("current" in param):
+						params[params.index(param)] = findProperty(param[param.index("{") + 1:-1])
+					else:
+						params[params.index(param)] = self.tiles[player.GetBoardPos()]
 					
 				elif "int" in param:
-				
+					
 					params[params.index(param)] = int(param[param.index("{") + 1:-1])
+				
 					
 			if len(params) == 1:
 				self.cardApi[action](params[0])
@@ -241,7 +275,7 @@ class API():
 			elif len(params) == 4:
 				self.cardApi[action](params[0],params[1],params[2],params[3])			
 					
-			return False		
+		return False		
 					
 					
 					

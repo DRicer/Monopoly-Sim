@@ -3,7 +3,7 @@
 class Board():
 
 
-	def __init__(self, width = 11, height = 11, evenBuild = True, morgagePercent = 0.5, morgageInterest = 1.1, availableHouses = 32, availableHotel = 12 , houseSellPercent = 1.0):
+	def __init__(self, width = 11, height = 11, evenBuild = True, morgagePercent = 0.5, morgageInterest = 1.1, availableHouses = 32, availableHotel = 12 , houseSellPercent = 1.0, bail = 50):
 	
 		if not isinstance(width, int):
 				raise TypeError("width must be set to an integer")
@@ -36,14 +36,26 @@ class Board():
 		if not isinstance(houseSellPercent, float):
 				raise TypeError("houseSellPercent must be set to a float")
 		self.houseSellPercent = houseSellPercent
+		
+		if not isinstance(bail, int):
+				raise TypeError("bail must be set to an integer")
+		self.bail = bail
 
+	def SetBail(self, new):
+		if not isinstance(bail, new):
+				raise TypeError("bail must be set to an integer")
+		self.bail = new
+		
+	def GetBail(self):
+		return self.bail
+		
 	def SetEvenBuild(self, even):
 		self.evenBuild = even
 		
 	def GetEvenBuild(self):
 		return self.evenBuild
 		
-		
+		d
 	def SetDimensions(self, newHeight, newWidth):
 	
 		if not isinstance(newWidth, int):

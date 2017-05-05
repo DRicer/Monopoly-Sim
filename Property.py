@@ -93,8 +93,6 @@ class Property(Tile):
 		return self.inGroup
 		
 	def SetOwner(self, new):
-		if not isinstance(new, Player):
-			raise TypeError("owner must be set to a Player")
 		
 		self.owner = new
 			
@@ -107,3 +105,5 @@ class Property(Tile):
 	def DeductEarnings(self, amount):
 		self.earnings -=amount
 		
+	def GetEarnings(self):
+		return self.earnings

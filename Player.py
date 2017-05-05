@@ -17,9 +17,17 @@ class Player():
 		self.Cash = startCash
 		self.Strategy = Strat
 		
+		self.getOutOfJailCards = []
 		self.ownedProperties = []
 		self.boardPos = 0
 		self.jailTurns = 0
+		self.bankrupt = False
+	
+	def GetIsBankrupt(self):
+		return self.bankrupt
+		
+	def SetIsBankrupt(self, new):
+		self.bankrupt = new
 	
 	def GetRollOrder(self):
 		return self.rollOrder
@@ -35,7 +43,13 @@ class Player():
 		
 	def GetOwnedPropertys(self):
 		return self.ownedProperties
-		
+	
+	def SetOwnedPropertys(self, new):
+		if not isinstance(new, list):
+			raise TypeError("propertys must be set to a list")
+	
+		self.ownedProperties = new
+		#
 	def GetCash(self):
 		return self.Cash
 		
@@ -72,4 +86,16 @@ class Player():
 	def decJailTurns(self):
 		self.jailTurns -= 1
 		
+	def AddGetOutOFJail(self, card):
+		self.getOutOfJailCards.append(card)
+	
+	def HasGetOutOFJail(self):
+		if self.getOutOfJailCards:
+			return True
+		
+	def UseGetOutOFJail(self):
+		self.jailTurns = 0
+		card = self.getOutOfJailCards[0]
+		del self.getOutOfJailCards[0]
+		return card
 	
