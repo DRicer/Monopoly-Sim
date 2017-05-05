@@ -128,7 +128,7 @@ class API():
 		
 		return even		
 			
-	def checkIfEvenBuild(self, buildProperty, player):
+	def checkIfEvenBuild(self, buildProperty, player ,buying = True):
 		owned = player.GetOwnedPropertys()
 		groupProperties = []
 		group = buildProperty.GetGroup()
@@ -136,8 +136,10 @@ class API():
 		for property in owned:
 			if property.GetGroup() == group:
 				groupProperties.append(property)
-				
-		compariter = buildProperty.GetNumHouses() + 1
+		if buying:		
+			compariter = buildProperty.GetNumHouses() + 1
+		else:
+			compariter = buildProperty.GetNumHouses() - 1
 		even = False
 		
 		for property in groupProperties:
@@ -234,7 +236,7 @@ class API():
 				
 	def playCard(self, card, player):
 	
-		def findProperty(name):
+		def findProperty(name):#find the propery with the given name
 			for i in range(0, len(self.tiles)):
 				if self.tiles[i].GetName() == name:
 					return self.tiles[i]
@@ -243,29 +245,29 @@ class API():
 		params = []
 		cardActions = card.GetActions()
 
-		for action in cardActions:
-			params = cardActions[action].split(",")
-			if "getOutOfJailFree" in action:
-				player.AddGetOutOFJail
+		for action in cardActions:#for every action on the card
+			params = cardActions[action].split(",")#seperate the parameters for the action
+			if "getOutOfJailFree" in action:##is it a get out of jail free card
+				player.AddGetOutOFJail#give it to the player
 				return True
-			for param in params:
+			for param in params:#interpret the parameters
 			
-				if "player" in param:
+				if "player" in param:#is it a player parameter
 				
 					if "self" in param:
 						params[params.index(param)] = player
 						
-				elif "property" in param:
+				elif "property" in param:#is it a property parameter
 					if not ("current" in param):
 						params[params.index(param)] = findProperty(param[param.index("{") + 1:-1])
 					else:
 						params[params.index(param)] = self.tiles[player.GetBoardPos()]
 					
-				elif "int" in param:
+				elif "int" in param:#is it an integer parameter
 					
 					params[params.index(param)] = int(param[param.index("{") + 1:-1])
 				
-					
+			#perform the action		
 			if len(params) == 1:
 				self.cardApi[action](params[0])
 			elif len(params) == 2:

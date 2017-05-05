@@ -165,7 +165,7 @@ class Rules():
 			if lowestCost == 9999:
 				for property in properties:
 					if hasattr(property, "GetHouseCost"):
-						if (property.GetHouseCost() < lowestCost) and not(property.GetIsMorgaged()) and  property.GetNumHouses() > 0:
+						if (property.GetHouseCost() < lowestCost) and not(property.GetIsMorgaged()) and  property.GetNumHouses() > 0 and api.checkIfEvenBuild(property, player, False):
 							sellImprovments = True
 							lowestCost = property.GetHouseCost()
 							selling = property
@@ -210,9 +210,10 @@ class Rules():
 						jailCard = currentPlayer.UseGetOutOFJail()
 						self.Cards[jailCard.GetType()].append(jailCard)
 					
-					roll = api.rollDice(currentPlayer, self.dice) # roll dice
+					roll = api.rollDice(currentPlayer, self.dice)# roll dice
 					oldTile = currentPlayer.GetBoardPos() #store previous tile 
 					api.movePlayer(currentPlayer,roll) #move player
+						
 					self.log.append("player " + str(currentPlayer.GetRollOrder()) + " moves from " + str(self.tiles[oldTile].GetName()) + " to " + str(self.tiles[currentPlayer.GetBoardPos()].GetName()))
 					print("player " + str(currentPlayer.GetRollOrder()) + " moves from " + str(self.tiles[oldTile].GetName()) + " to " + str(self.tiles[currentPlayer.GetBoardPos()].GetName()))
 					if api.checkIfPassGo(currentPlayer, self.tiles[oldTile]): #check if passed GO and pay amount
@@ -342,9 +343,10 @@ class Rules():
 									print("player " + str(currentPlayer.GetRollOrder()) + " unmorgages " + str(property.GetName()))
 				print()	
 				gui.update(self.players, oldTile)
-				time.sleep(0.2)
+				time.sleep(1)
 				self.turnCount += 1
-				currentPlayer = self.players[nextPlayer(currentPlayer)]
+				if not self.dice.GetDoublesCount() > 0:						
+					currentPlayer = self.players[nextPlayer(currentPlayer)]
 		
 		WinningPlayer = ""
 		for player in self.players:

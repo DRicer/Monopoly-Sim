@@ -40,7 +40,7 @@ class Dice():
 	def RollDice(self):
 		rolls = []
 		for die in self.dice:
-			rolls.append(random.randrange(1, die))
+			rolls.append(random.randrange(1, die + 1))
 			
 		if self.checkDoubles(rolls):
 			self.DoublesCount += 1
@@ -49,10 +49,5 @@ class Dice():
 			
 		return sum(rolls)
 		
-	def checkDoubles(self, iterator):
-		iterator = iter(iterator)
-		try:
-			first = next(iterator)
-		except StopIteration:
-			return True
-		return all(first == rest for rest in iterator)
+	def checkDoubles(self, rolls):
+		return all(x == rolls[0] for x in rolls)

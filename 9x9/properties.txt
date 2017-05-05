@@ -1,0 +1,18 @@
+Old Kent Road;standard;1;60;2,10,30,90,160,250;50;brown;3
+Whitechapel;standard;3;60;4,20,60,180,360,450;50;brown;3
+The Angel Islington;standard;6;100;6,30,90,270,400,550;50;lblue;3
+Euston Road;standard;8;100;6,30,90,270,400,550;50;lblue;3
+Pentonville Road;standard;9;120;8,40,100,300,450,600;50;lblue;3
+Pall Mall;standard;11;140;10,50,150,450,625,750;100;pink;3
+Whitehall;standard;13;140;10,50,150,450,625,750;100;pink;3
+Northumberland;standard;14;160;12,60,180,500,700,900;100;pink;3
+Bow Street;standard;16;180;14,70,200,550,750,950;100;orange;3
+Marlborough Street;standard;18;180;14,70,200,550,750,950;100;orange;3
+Vine Street;standard;19;200;16,80,220,600,800,1000;100;orange;3
+Strand;standard;21;220;18,90,250,700,875,1050;150;red;3
+Fleet Street;standard;23;220;18,90,250,700,875,1050;150;red;3
+Trafalgar Square;standard;24;240;20,100,300,750,925,1100;150;red;3
+Leicester Square;standard;26;260;22,110,330,800,975,1150;150;yellow;3
+Coventry Street;standard;27;260;22,110,330,800,975,1150;150;yellow;3
+Piccadilly;standard;29;280;22,120,360,850,1025,1200;150;yellow;3
+Regent Street;standard;31;300;26,130,390,900,1100,1275;200;brown;3
